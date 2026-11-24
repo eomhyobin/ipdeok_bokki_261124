@@ -1,0 +1,952 @@
+
+/* ==========================
+   1. 기본 설정
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f5f5f5;
+    color: #38241f;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding-bottom: 110px;
+
+    background-color: #fdf1e2;
+
+    overflow: hidden;
+}
+
+
+/* ==========================
+   2. 헤더
+========================== */
+
+.header {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+.back-button,
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==========================
+   3. 햄버거 슬라이드 메뉴
+========================== */
+
+.menu-layer {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: visibility 0.3s;
+
+    z-index: 200;
+}
+
+.menu-layer.active {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.menu-overlay {
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.menu-layer.active .menu-overlay {
+    opacity: 1;
+}
+
+.side-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 66.6667%;
+    height: 100%;
+
+    padding: 20px;
+
+    background-color: #fdf1e2;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.menu-layer.active .side-menu {
+    transform: translateX(0);
+}
+
+.side-menu-header {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-bottom: 40px;
+}
+
+.side-menu-list li {
+    border-bottom: 1px solid #dfd0c2;
+}
+
+.side-menu-list a {
+    display: block;
+
+    padding: 20px 0;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* ==========================
+   4. 주문 완료 메시지
+========================== */
+
+.success-section {
+    padding: 35px 20px 25px;
+
+    text-align: center;
+}
+
+.success-section h1 {
+    margin-top: 18px;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    color: #ef402b;
+}
+
+.success-section h2 {
+    margin-top: 8px;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.success-description {
+    margin-top: 14px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+
+    color: #79665e;
+}
+
+
+/* ==========================
+   5. 완료 아이콘 애니메이션
+========================== */
+
+.success-animation {
+    position: relative;
+
+    width: 150px;
+    height: 135px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-circle {
+    width: 95px;
+    height: 95px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ef402b;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 0 13px #ffdfd2;
+
+    animation: successPop 0.65s
+        cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.success-circle svg {
+    stroke-dasharray: 30;
+    stroke-dashoffset: 30;
+
+    animation: drawCheck 0.45s ease 0.35s forwards;
+}
+
+.sparkle {
+    position: absolute;
+
+    color: #ef402b;
+
+    animation: sparklePop 0.6s ease both;
+}
+
+.sparkle01 {
+    top: 3px;
+    left: 8px;
+
+    font-size: 25px;
+
+    animation-delay: 0.4s;
+}
+
+.sparkle02 {
+    top: 10px;
+    right: 5px;
+
+    font-size: 24px;
+
+    color: #efb44e;
+
+    animation-delay: 0.5s;
+}
+
+.sparkle03 {
+    bottom: 0;
+    right: 3px;
+
+    font-size: 21px;
+
+    animation-delay: 0.6s;
+}
+
+.sparkle04 {
+    bottom: 5px;
+    left: 0;
+
+    font-size: 18px;
+
+    color: #efb44e;
+
+    animation-delay: 0.7s;
+}
+
+@keyframes successPop {
+
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+@keyframes drawCheck {
+
+    to {
+        stroke-dashoffset: 0;
+    }
+
+}
+
+@keyframes sparklePop {
+
+    0% {
+        transform: scale(0) rotate(-30deg);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.3) rotate(10deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+
+}
+
+
+/* ==========================
+   6. 예상 배달 시간
+========================== */
+
+.delivery-time {
+    margin-top: 28px;
+    padding: 22px 20px;
+
+    background-color: #ffffff;
+
+    border-radius: 18px;
+}
+
+.delivery-time p {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: #79665e;
+}
+
+.delivery-time strong {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #ef402b;
+}
+
+.delivery-time strong span {
+    margin-left: 3px;
+
+    font-size: 22px;
+}
+
+.delivery-time small {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    color: #79665e;
+}
+
+
+/* ==========================
+   7. 주문 현황
+========================== */
+
+.status-section {
+    padding: 0 20px 26px;
+
+    border-bottom: 8px solid #efdfce;
+}
+
+.status-card {
+    padding: 20px 15px;
+
+    background-color: #ffffff;
+
+    border-radius: 15px;
+}
+
+.status-card h2 {
+    margin-bottom: 22px;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.status-list {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.status-list::before {
+    content: '';
+
+    position: absolute;
+    top: 20px;
+    left: 12.5%;
+    right: 12.5%;
+
+    height: 2px;
+
+    background-color: #efdfce;
+}
+
+.status-step {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 1;
+}
+
+.status-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f2eae3;
+    color: #a99584;
+
+    border-radius: 50%;
+}
+
+.status-step span {
+    font-size: 12px;
+    font-weight: 400;
+
+    color: #79665e;
+
+    white-space: nowrap;
+}
+
+.status-step.active .status-icon {
+    background-color: #ef402b;
+    color: #ffffff;
+}
+
+.status-step.active span {
+    color: #ef402b;
+    font-weight: 700;
+}
+
+
+/* ==========================
+   8. 공통 섹션
+========================== */
+
+.finish-section {
+    padding: 26px 20px;
+
+    border-bottom: 8px solid #efdfce;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.section-title h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.section-title span {
+    font-size: 13px;
+    font-weight: 500;
+
+    color: #79665e;
+}
+
+
+/* ==========================
+   9. 주문번호 및 주문일시
+========================== */
+
+.order-meta {
+    margin-bottom: 18px;
+}
+
+.order-meta p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+}
+
+.order-meta span {
+    color: #79665e;
+
+    flex-shrink: 0;
+}
+
+.order-meta strong {
+    font-weight: 500;
+
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================
+   10. 주문 메뉴
+========================== */
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+    padding: 14px;
+
+    background-color: #ffffff;
+
+    border-radius: 15px;
+}
+
+.order-image {
+    width: 90px;
+    height: 90px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background-color: #f7f7f7;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.order-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.order-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+.order-options {
+    margin-top: 4px;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: #79665e;
+
+    overflow-wrap: anywhere;
+}
+
+.order-quantity {
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    color: #79665e;
+}
+
+.order-price {
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    color: #ef402b;
+}
+
+
+/* ==========================
+   11. 배달 정보
+========================== */
+
+.delivery-card {
+    padding: 18px;
+
+    background-color: #ffffff;
+
+    border-radius: 15px;
+}
+
+.delivery-title {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+}
+
+.delivery-title svg {
+    color: #ef402b;
+
+    flex-shrink: 0;
+}
+
+.delivery-title strong {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.address {
+    font-size: 15px;
+    font-weight: 500;
+
+    line-height: 1.6;
+}
+
+.address-detail {
+    margin-top: 4px;
+
+    font-size: 14px;
+}
+
+.phone {
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    color: #79665e;
+}
+
+.request-info {
+    margin-top: 18px;
+    padding-top: 15px;
+
+    border-top: 1px solid #efdfce;
+}
+
+.request-info span {
+    font-size: 12px;
+
+    color: #79665e;
+}
+
+.request-info p {
+    margin-top: 6px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================
+   12. 결제 정보
+========================== */
+
+.price-section {
+    border-bottom: none;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+
+    font-size: 14px;
+}
+
+.price-row strong {
+    font-weight: 500;
+}
+
+.discount-row strong {
+    color: #ef402b;
+}
+
+.final-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 20px;
+    padding: 20px 0;
+
+    border-top: 1px solid #dfd0c2;
+}
+
+.final-price span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.final-price strong {
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #ef402b;
+}
+
+.test-notice {
+    font-size: 11px;
+    line-height: 1.6;
+
+    color: #79665e;
+}
+
+
+/* ==========================
+   13. 하단 고정 버튼
+========================== */
+
+.finish-footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+
+    padding: 18px 20px 20px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+
+    background-color: #ffffff;
+
+    border-radius: 20px 20px 0 0;
+
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
+
+    z-index: 90;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 55px;
+
+    background-color: #ef402b;
+    color: #ffffff;
+
+    border-radius: 15px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.home-button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================
+   14. 주문 내역이 없는 경우
+========================== */
+
+.empty-section {
+    padding: 100px 20px 40px;
+
+    text-align: center;
+}
+
+.empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 25px;
+
+    background-color: #efdfce;
+    color: #a99584;
+
+    border-radius: 50%;
+}
+
+.empty-section h1 {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.empty-section p {
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    color: #79665e;
+}
+
+.empty-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 52px;
+
+    margin-top: 30px;
+
+    background-color: #ef402b;
+    color: #ffffff;
+
+    border-radius: 15px;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* ==========================
+   15. 모바일 반응형
+========================== */
+
+@media (max-width: 360px) {
+
+    .success-section h1 {
+        font-size: 32px;
+    }
+
+    .success-section h2 {
+        font-size: 20px;
+    }
+
+    .section-title h2 {
+        font-size: 18px;
+    }
+
+    .status-step span {
+        font-size: 10px;
+    }
+
+    .status-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .status-list::before {
+        top: 18px;
+    }
+
+    .order-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .order-info h3 {
+        font-size: 13px;
+    }
+
+    .order-options {
+        font-size: 11px;
+    }
+
+    .final-price strong {
+        font-size: 22px;
+    }
+
+    .home-button {
+        font-size: 16px;
+    }
+
+}
+
+
+/* 애니메이션 최소화 설정 대응 */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .success-circle,
+    .sparkle,
+    .success-circle svg {
+        animation: none;
+        opacity: 1;
+        stroke-dashoffset: 0;
+    }
+
+}
+/* 햄버거 메뉴 호버 효과 */
+
+.side-menu-list a {
+    display: block;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.side-menu-list a:hover {
+    color: #ef402b;
+    background-color: transparent;
+}

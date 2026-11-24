@@ -1,0 +1,821 @@
+
+/* ==============================
+   공통 설정
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f5f5f5;
+    color: #38241f;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* 전체 페이지 */
+.container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    background-color: #fdf1e2;
+    overflow: hidden;
+}
+
+
+/* ==============================
+   Header
+============================== */
+
+.header {
+    position: relative;
+
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 중앙 로고 */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    display: block;
+    width: 120px;
+    height: auto;
+}
+
+/* 뒤로가기, 햄버거 메뉴 */
+.back-button,
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==============================
+   페이지 제목
+============================== */
+
+.page-title {
+    padding: 0 26px;
+}
+
+.page-title h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.page-title p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+
+/* ==============================
+   카테고리 버튼
+============================== */
+
+.category-section {
+    margin-top: 16px;
+}
+
+.category-list {
+    display: flex;
+    gap: 10px;
+
+    padding: 0 20px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+/* 스크롤바 숨기기 */
+.category-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* 카테고리 버튼 */
+.category-button {
+    flex-shrink: 0;
+
+    min-width: 80px;
+    height: 35px;
+    padding: 0 16px;
+
+    border: 1px solid #38241f;
+    border-radius: 15px;
+
+    background-color: #fffaf6;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: 0.2s;
+}
+
+/* 선택한 카테고리 */
+.category-button.active {
+    background-color: #ef402b;
+    border-color: #ef402b;
+    color: #ffffff;
+}
+
+
+/* ==============================
+   메뉴 개수 및 정렬
+============================== */
+
+.menu-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+    margin-top: 24px;
+    margin-bottom: 28px;
+}
+
+/* 메뉴 개수 */
+#menuCount {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* 정렬 버튼 */
+.sort-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #38241f;
+    border-radius: 15px;
+
+    background-color: #ffffff;
+}
+
+.sort-box svg {
+    position: absolute;
+    left: 8px;
+
+    pointer-events: none;
+}
+
+.sort-box select {
+    appearance: none;
+
+    height: 33px;
+    padding: 0 12px 0 29px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: transparent;
+    color: #38241f;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   메뉴 리스트
+============================== */
+
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+
+    padding: 0 20px 36px;
+}
+
+/* 메뉴 카드 */
+.menu-card {
+    min-width: 0;
+    padding: 9px;
+
+    background-color: #ffffff;
+    border-radius: 15px;
+
+    box-shadow: 0 1px 2px rgba(56, 36, 31, 0.12);
+
+    overflow: hidden;
+}
+
+/* 메뉴 링크 */
+.menu-link {
+    display: block;
+}
+
+/* 메뉴 이미지 */
+.menu-image {
+    width: 100%;
+    aspect-ratio: 1 / 0.9;
+
+    background-color: #f7f7f7;
+    border-radius: 10px;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 메뉴 이름 */
+.menu-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000000;
+
+    margin-top: 8px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 메뉴 설명 */
+.menu-description {
+    font-size: 10px;
+    font-weight: 400;
+    color: #222222;
+
+    margin-top: 4px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 가격과 하트 영역 */
+.menu-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 8px;
+}
+
+/* 메뉴 가격 */
+.menu-price {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ef402b;
+}
+
+/* 하트 버튼 */
+.favorite-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #000000;
+}
+
+/* 하트 선택 시 */
+.favorite-button.active {
+    color: #ef402b;
+}
+
+.favorite-button.active svg {
+    fill: #ef402b;
+    stroke: #ef402b;
+}
+
+
+/* ==============================
+   슬라이드 메뉴
+============================== */
+
+.menu-layer {
+    position: fixed;
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: visibility 0.3s;
+    z-index: 100;
+}
+
+.menu-layer.active {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* 어두운 배경 */
+.menu-overlay {
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+}
+
+.menu-layer.active .menu-overlay {
+    opacity: 1;
+}
+
+/* 슬라이드 메뉴 영역 */
+.side-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 66.6667%;
+    height: 100%;
+    padding: 0 20px;
+
+    background-color: #fdf1e2;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    overflow-y: auto;
+}
+
+.menu-layer.active .side-menu {
+    transform: translateX(0);
+}
+
+/* 슬라이드 메뉴 상단 */
+.side-menu-header {
+    height: 60px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.side-menu-header button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 슬라이드 메뉴 리스트 */
+.side-menu-list {
+    list-style: none;
+}
+
+.side-menu-list li {
+    border-bottom: 1px solid #dfd0c2;
+}
+
+.side-menu-list a {
+    display: block;
+    padding: 20px 0;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* ==============================
+   작은 모바일 화면
+============================== */
+
+@media (max-width: 360px) {
+
+    .menu-list {
+        gap: 10px;
+    }
+
+    .menu-name {
+        font-size: 13px;
+    }
+
+    .menu-price {
+        font-size: 15px;
+    }
+
+}
+/* ==============================
+   장바구니 개수
+============================== */
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+
+    min-width: 23px;
+    height: 23px;
+    padding: 0 5px;
+
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+
+    background-color: #38241f;
+    color: #ffffff;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   장바구니 팝업
+============================== */
+
+.cart-popup {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    height: 100dvh;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    align-items: flex-end;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: 0.3s ease;
+
+    z-index: 110;
+}
+
+/* 장바구니 활성화 */
+.cart-popup.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 장바구니 내용 영역 */
+.cart-panel {
+    width: 100%;
+    max-height: 80vh;
+
+    padding: 24px 20px;
+    border-radius: 25px 25px 0 0;
+
+    background-color: #fdf1e2;
+
+    overflow-y: auto;
+
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.cart-popup.active .cart-panel {
+    transform: translateY(0);
+}
+
+/* 장바구니 제목 */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+.cart-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#cartClose {
+    font-size: 24px;
+}
+
+/* 장바구니가 비어 있을 때 */
+.cart-empty {
+    padding: 40px 0;
+    text-align: center;
+
+    font-size: 14px;
+    color: #838383;
+}
+
+/* 장바구니 메뉴 카드 */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px;
+    margin-bottom: 12px;
+
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+
+/* 메뉴 이미지 */
+.cart-item-image {
+    flex-shrink: 0;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 10px;
+    background-color: #f7f7f7;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 메뉴 정보 */
+.cart-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-item-info h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cart-item-info p {
+    margin-top: 6px;
+
+    font-size: 16px;
+    font-weight: 700;
+    color: #ef402b;
+}
+
+/* 메뉴 삭제 버튼 */
+.cart-delete {
+    font-size: 18px;
+    color: #838383;
+}
+
+/* 총금액 */
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 0;
+    margin-top: 16px;
+
+    border-top: 1px solid #dfd0c2;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cart-total strong {
+    color: #ef402b;
+}
+
+/* 주문하기 버튼 */
+.cart-order-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 55px;
+
+    border-radius: 15px;
+
+    background-color: #ef402b;
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+/* ==============================
+   장바구니 플로팅 버튼
+============================== */
+
+.cart-button {
+    position: fixed;
+
+    bottom: 20px;
+    right: max(20px, calc((100% - 500px) / 2 + 20px));
+
+    width: 56px;
+    height: 56px;
+
+    border-radius: 50%;
+    background-color: #ef402b;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    z-index: 90;
+}
+
+/* 장바구니 버튼에 메뉴가 가려지지 않도록 여백 추가 */
+.menu-list {
+    padding-bottom: 90px;
+}
+.sort-box select {
+    field-sizing: content;
+}
+/* 메뉴 카드 전체 클릭 */
+.menu-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 장바구니 메뉴 옵션 설명 */
+.cart-item-info small {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #838383;
+}
+/* ==========================
+   장바구니 토스트 메시지
+========================== */
+
+.cart-toast {
+    position: fixed;
+
+    bottom: 26px;
+
+    right: max(
+        90px,
+        calc((100% - 500px) / 2 + 90px)
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 13px 16px;
+
+    background-color: #38241f;
+    color: #ffffff;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition: opacity 0.25s ease,
+                transform 0.25s ease,
+                visibility 0.25s;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+
+/* 토스트 메시지 등장 */
+
+.cart-toast.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* 장바구니 숫자 강조 */
+
+.cart-count.count-pop {
+    animation: countPop 0.5s ease;
+}
+
+@keyframes countPop {
+
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.6);
+        background-color: #ef402b;
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* 작은 모바일 화면 대응 */
+
+@media (max-width: 360px) {
+
+    .cart-toast {
+        font-size: 11px;
+        padding: 12px;
+        gap: 5px;
+    }
+
+}
+
+
+/* 애니메이션 최소화 설정 대응 */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cart-toast {
+        transition: none;
+    }
+
+    .cart-count.count-pop {
+        animation: none;
+    }
+
+}
+.cart-toast {
+    width: calc(min(100%, 500px) - 110px);
+}
+.menu-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+/* 햄버거 메뉴 호버 효과 */
+
+.side-menu-list a {
+    display: block;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.side-menu-list a:hover {
+    color: #ef402b;
+    background-color: transparent;
+}

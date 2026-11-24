@@ -1,12 +1,754 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>입덕볶이 - 메뉴</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/lists.css">
 </head>
+
 <body>
-    
+
+    <div class="container">
+
+        <!-- 헤더 -->
+        <header class="header">
+
+            <!-- 뒤로가기 -->
+            <a href="../../index.html" class="back-button" aria-label="뒤로가기">
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+            </a>
+
+            <!-- 로고 -->
+            <a href="../../index.html" class="logo">
+                <img src="img/logo.png" alt="입덕볶이">
+            </a>
+
+            <!-- 햄버거 메뉴 -->
+            <button class="menu-button" id="menuOpen" aria-label="메뉴 열기">
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                </svg>
+            </button>
+
+        </header>
+
+
+        <!-- 슬라이드 메뉴 -->
+        <div class="menu-layer" id="menuLayer">
+
+            <div class="menu-overlay" id="menuOverlay"></div>
+
+            <nav class="side-menu">
+
+                <div class="side-menu-header">
+                    <button id="menuClose" aria-label="메뉴 닫기">
+                        <svg width="28" height="28" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <ul class="side-menu-list">
+
+    <li>
+        <a href="../../index.html">메인페이지</a>
+    </li>
+
+    <li>
+        <a href="../detail/detail.html">상세페이지</a>
+    </li>
+
+    <li>
+        <a href="../payment/payment.html">결제페이지</a>
+    </li>
+
+    <li>
+        <a href="../payment_finish/payment_finish.html">결제 완료</a>
+    </li>
+
+</ul>
+
+            </nav>
+
+        </div>
+
+
+        <!-- 페이지 제목 -->
+        <section class="page-title">
+
+            <h1>메뉴</h1>
+
+            <p>맛있는 입덕볶이가 한 곳에서!</p>
+
+        </section>
+
+
+        <!-- 카테고리 버튼 -->
+        <section class="category-section">
+
+            <div class="category-list">
+
+                <button class="category-button active"
+                    data-category="main">메인메뉴</button>
+
+                <button class="category-button"
+                    data-category="set">세트메뉴</button>
+
+                <button class="category-button"
+                    data-category="single">1인메뉴</button>
+
+                <button class="category-button"
+                    data-category="side">사이드</button>
+
+                <button class="category-button"
+                    data-category="drink">음료</button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 메뉴 개수 및 정렬 -->
+        <section class="menu-toolbar">
+
+            <p id="menuCount">6개의 메뉴</p>
+
+            <div class="sort-box">
+
+                <svg width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6"/>
+                </svg>
+
+                <select id="sortMenu" aria-label="메뉴 정렬">
+                    <option value="popular">인기순</option>
+                    <option value="low">낮은 가격순</option>
+                    <option value="high">높은 가격순</option>
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- 메뉴 카드 영역 -->
+        <section class="menu-list" id="menuList">
+        </section>
+
+
+        <!-- 장바구니 플로팅 버튼 -->
+        <a href="#" class="cart-button" aria-label="장바구니">
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <circle cx="8" cy="21" r="1"/>
+                <circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2H5l2.66 13.42a2 2 0 0 0 2 1.58h8.84a2 2 0 0 0 2-1.61L22 7H6"/>
+
+            </svg>
+
+            <span class="cart-count" id="cartCount">0</span>
+
+        </a>
+
+
+        <!-- 장바구니 팝업 -->
+        <div class="cart-popup" id="cartPopup">
+
+            <div class="cart-panel">
+
+                <div class="cart-header">
+                    <h2>장바구니</h2>
+                    <button id="cartClose" aria-label="장바구니 닫기">✕</button>
+                </div>
+
+                <div id="cartItems"></div>
+
+                <div class="cart-total">
+                    <span>총금액</span>
+                    <strong id="cartTotal">0원</strong>
+                </div>
+
+                <a href="../payment/payment.html" class="cart-order-button">
+                    주문하기
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- 장바구니 담기 완료 토스트 -->
+<div class="cart-toast" id="cartToast" role="status">
+
+    <svg width="20" height="20" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+
+        <circle cx="12" cy="12" r="10"/>
+        <path d="m8 12 3 3 5-6"/>
+
+    </svg>
+
+    <span>장바구니에 담았어요!</span>
+
+</div>
+    <!-- JavaScript -->
+    <script>
+        // 장바구니가 비어 있을 때 주문 방지
+document.querySelector('.cart-order-button')
+    .addEventListener('click', function (event) {
+
+        const cart = JSON.parse(
+            localStorage.getItem('ipdeokOrderCart') || '[]'
+        );
+
+        if (cart.length === 0) {
+
+            event.preventDefault();
+
+            alert('장바구니에 메뉴를 먼저 담아주세요!');
+
+        }
+
+    });
+
+        // ==========================
+        // 1. 메뉴 데이터
+        // ==========================
+
+        const menus = {
+
+    // 메인메뉴
+    main: [
+        {
+            name: '오리지널 입덕볶이',
+            description: '매콤달콤 ♥ 입덕볶이의 대표 메뉴',
+            price: 9900,
+            image: '../../img/basic.webp'
+        },
+        {
+            name: '꾸덕 로제에 입덕볶이',
+            description: '꾸덕꾸덕 ♥ 부드럽고 진한 로제',
+            price: 11900,
+            image: '../../img/rose.webp'
+        },
+        {
+            name: '매움에 입덕볶이',
+            description: '아 매워 ♥ 스트레스 날려버리자',
+            price: 11900,
+            image: '../../img/spicy.webp'
+        },
+        {
+            name: '치즈 듬뿍에 입덕볶이',
+            description: '쭈우욱 ♥ 늘어나는 치즈가 가득',
+            price: 12900,
+            image: '../../img/cheese.webp'
+        },
+        {
+            name: '짜장에 입덕볶이',
+            description: '짜장에 퐁당 ♥ 밥 갖고온나',
+            price: 11900,
+            image: '../../img/jja.webp'
+        },
+        {
+            name: '토핑 가득에 입덕볶이',
+            description: '뭐부터 먹지 ♥ 먹을 것이 한가득',
+            price: 13900,
+            image: '../../img/toping.webp'
+        }
+    ],
+
+    // 세트메뉴
+    set: [
+        {
+            name: '입덕 세트',
+            description: '떡볶이와 튀김의 완벽한 만남',
+            price: 15900,
+            image: 'img/set01.webp'
+        },
+        {
+            name: '친구랑 세트',
+            description: '둘이 먹으면 두 배로 맛있어',
+            price: 19900,
+            image: 'img/set02.webp'
+        },
+        {
+            name: '모둠 튀김 세트',
+            description: '바삭한 튀김을 한가득',
+            price: 17900,
+            image: 'img/set03.webp'
+        },
+        {
+            name: '패밀리 세트',
+            description: '온 가족이 함께 입덕!',
+            price: 29900,
+            image: 'img/set04.webp'
+        }
+    ],
+
+    // 1인메뉴
+    single: [
+        {
+            name: '1인 오리지널 입덕볶이',
+            description: '혼자서도 맛있게 입덕 완료',
+            price: 5900,
+            image: 'img/single01.webp'
+        },
+        {
+            name: '1인 꾸덕 로제',
+            description: '혼자 즐기는 꾸덕한 로제',
+            price: 6900,
+            image: 'img/single02.webp'
+        },
+        {
+            name: '1인 치즈 떡볶이',
+            description: '혼자 먹어도 치즈는 듬뿍',
+            price: 7900,
+            image: 'img/single03.webp'
+        },
+        {
+            name: '1인 매운 떡볶이',
+            description: '혼자서도 화끈하게!',
+            price: 6900,
+            image: 'img/single04.webp'
+        }
+    ],
+
+    // 사이드
+    side: [
+        {
+            name: '모둠 튀김',
+            description: '바삭바삭 골라 먹는 재미',
+            price: 4500,
+            image: 'img/side01.webp'
+        },
+        {
+            name: '김말이',
+            description: '떡볶이 국물에 콕!',
+            price: 3000,
+            image: 'img/side02.webp'
+        },
+        {
+            name: '찰순대',
+            description: '쫄깃쫄깃 맛있는 순대',
+            price: 4500,
+            image: 'img/side03.webp'
+        },
+        {
+            name: '참치마요 주먹밥',
+            description: '매울 때 한입씩 쏙',
+            price: 3500,
+            image: 'img/side04.webp'
+        },
+        {
+            name: '치즈볼',
+            description: '겉은 바삭 속은 쫀득',
+            price: 4000,
+            image: 'img/side05.webp'
+        },
+        {
+            name: '꼬치 어묵',
+            description: '따끈한 국물과 함께',
+            price: 3000,
+            image: 'img/side06.webp'
+        }
+    ],
+
+    // 음료
+    drink: [
+        {
+            name: '콜라',
+            description: '톡 쏘는 시원한 탄산',
+            price: 2000,
+            image: 'img/drink01.webp'
+        },
+        {
+            name: '사이다',
+            description: '깔끔하고 시원하게',
+            price: 2000,
+            image: 'img/drink02.webp'
+        },
+        {
+            name: '쿨피스',
+            description: '매운 떡볶이 필수템',
+            price: 2500,
+            image: 'img/drink03.webp'
+        },
+        {
+            name: '제로콜라',
+            description: '가볍게 즐기는 탄산',
+            price: 2000,
+            image: 'img/drink04.webp'
+        }
+    ]
+
+};
+
+
+        // ==========================
+        // 2. 메뉴 리스트 표시
+        // ==========================
+
+        const menuList = document.getElementById('menuList');
+        const menuCount = document.getElementById('menuCount');
+        const sortMenu = document.getElementById('sortMenu');
+
+        let currentCategory = 'main';
+
+
+        function showMenus() {
+
+            let selectedMenus = [...menus[currentCategory]];
+
+            // 낮은 가격순
+            if (sortMenu.value === 'low') {
+                selectedMenus.sort((a, b) => a.price - b.price);
+            }
+
+            // 높은 가격순
+            if (sortMenu.value === 'high') {
+                selectedMenus.sort((a, b) => b.price - a.price);
+            }
+
+            // 메뉴 개수 변경
+            menuCount.textContent = selectedMenus.length + '개의 메뉴';
+
+            // 기존 메뉴 삭제
+            menuList.innerHTML = '';
+
+            // 메뉴 카드 생성
+            selectedMenus.forEach(function (menu) {
+
+                const card = document.createElement('article');
+
+                card.className = 'menu-card';
+
+                // 해당 메뉴의 원래 순서 확인
+                const menuIndex = menus[currentCategory].indexOf(menu);
+
+                // 상세페이지 연결
+                card.innerHTML = `
+
+                    <a href="../detail/detail.html?category=${currentCategory}&item=${menuIndex}"
+                        class="menu-link">
+
+                        <div class="menu-image"
+                            style="background-image: url('${menu.image}')">
+                        </div>
+
+                        <h2 class="menu-name">
+                            ${menu.name}
+                        </h2>
+
+                        <p class="menu-description">
+                            ${menu.description}
+                        </p>
+
+                        <div class="menu-bottom">
+
+                            <p class="menu-price">
+                                ${menu.price.toLocaleString('ko-KR')}원
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                `;
+
+                menuList.appendChild(card);
+
+            });
+
+        }
+
+
+        // ==========================
+        // 3. 카테고리 버튼 클릭
+        // ==========================
+
+        const categoryButtons = document.querySelectorAll('.category-button');
+
+        categoryButtons.forEach(function (button) {
+
+            button.addEventListener('click', function () {
+
+                categoryButtons.forEach(function (item) {
+                    item.classList.remove('active');
+                });
+
+                button.classList.add('active');
+
+                currentCategory = button.dataset.category;
+
+                showMenus();
+
+            });
+
+        });
+
+
+        // ==========================
+        // 4. 가격 정렬
+        // ==========================
+
+        sortMenu.addEventListener('change', showMenus);
+
+
+        // ==========================
+        // 5. 햄버거 슬라이드 메뉴
+        // ==========================
+
+        const menuOpen = document.getElementById('menuOpen');
+        const menuClose = document.getElementById('menuClose');
+        const menuLayer = document.getElementById('menuLayer');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuOpen.addEventListener('click', function () {
+
+            menuLayer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+        });
+
+        function closeMenu() {
+
+            menuLayer.classList.remove('active');
+            document.body.style.overflow = '';
+
+        }
+
+        menuClose.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+
+
+        // ==========================
+        // 6. 장바구니 기능
+        // ==========================
+
+        const cartButton = document.querySelector('.cart-button');
+        const cartCount = document.getElementById('cartCount');
+        const cartPopup = document.getElementById('cartPopup');
+        const cartClose = document.getElementById('cartClose');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+
+
+        // 상세페이지에서 저장한 장바구니 불러오기
+        function updateCart() {
+
+            const cart = JSON.parse(
+                localStorage.getItem('ipdeokOrderCart') || '[]'
+            );
+
+            // 장바구니 수량 표시
+            cartCount.textContent = cart.reduce(
+                (sum, item) => sum + item.qty, 0
+            );
+
+            cartCount.style.display = cart.length ? 'flex' : 'none';
+
+            // 기존 장바구니 내용 삭제
+            cartItems.innerHTML = '';
+
+            let total = 0;
+
+            // 장바구니가 비어 있을 때
+            if (!cart.length) {
+
+                cartItems.innerHTML =
+                    '<p class="cart-empty">장바구니가 비어 있습니다.</p>';
+
+            }
+
+            // 장바구니 메뉴 표시
+            cart.forEach(function (menu, index) {
+
+                total += menu.total;
+
+                const item = document.createElement('div');
+
+                item.className = 'cart-item';
+
+                item.innerHTML = `
+
+                    <div class="cart-item-image"
+                        style="background-image: url('${menu.image}')">
+                    </div>
+
+                    <div class="cart-item-info">
+
+                        <h3>${menu.name} × ${menu.qty}</h3>
+
+                        <small>
+                            ${[menu.spicy, ...menu.toppings]
+                                .filter(Boolean).join(' / ')}
+                        </small>
+
+                        <p>${menu.total.toLocaleString()}원</p>
+
+                    </div>
+
+                    <button class="cart-delete"
+                        aria-label="메뉴 삭제">✕</button>
+
+                `;
+
+                // 장바구니 메뉴 삭제
+                item.querySelector('.cart-delete')
+                    .addEventListener('click', function () {
+
+                        cart.splice(index, 1);
+
+                        localStorage.setItem(
+                            'ipdeokOrderCart',
+                            JSON.stringify(cart)
+                        );
+
+                        updateCart();
+
+                    });
+
+                cartItems.appendChild(item);
+
+            });
+
+            // 총금액 표시
+            cartTotal.textContent = total.toLocaleString() + '원';
+
+        }
+
+
+        // 장바구니 열기
+        cartButton.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            updateCart();
+
+            cartPopup.classList.add('active');
+
+            document.body.style.overflow = 'hidden';
+
+        });
+
+
+        // 장바구니 닫기
+        function closeCart() {
+
+            cartPopup.classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+        cartClose.addEventListener('click', closeCart);
+
+
+        // 어두운 배경 클릭 시 닫기
+        cartPopup.addEventListener('click', function (event) {
+
+            if (event.target === cartPopup) {
+                closeCart();
+            }
+
+        });
+
+
+        // ESC 키로 팝업 닫기
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'Escape') {
+
+                closeMenu();
+                closeCart();
+
+            }
+
+        });
+
+
+        // 상세페이지에서 돌아왔을 때 장바구니 갱신
+        window.addEventListener('pageshow', updateCart);
+
+
+        // ==========================
+        // 7. 처음 접속했을 때 실행
+        // ==========================
+
+        showMenus();
+
+        updateCart();
+
+        // 상세페이지에서 장바구니로 이동했을 때
+        if (new URLSearchParams(location.search).has('cart')) {
+
+            cartButton.click();
+
+        }
+// 장바구니 담기 완료 모션
+if (sessionStorage.getItem('ipdeokCartAdded') === 'true') {
+
+    sessionStorage.removeItem('ipdeokCartAdded');
+
+    const cartToast = document.getElementById('cartToast');
+
+    setTimeout(function () {
+
+        // 토스트 메시지 등장
+        cartToast.classList.add('show');
+
+        // 장바구니 숫자 강조
+        cartCount.classList.add('count-pop');
+
+        // 1.5초 후 토스트 메시지 사라짐
+        setTimeout(function () {
+
+            cartToast.classList.remove('show');
+
+        }, 1500);
+
+        // 숫자 애니메이션 종료
+        setTimeout(function () {
+
+            cartCount.classList.remove('count-pop');
+
+        }, 500);
+
+    }, 100);
+
+}
+    </script>
+
 </body>
 </html>

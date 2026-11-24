@@ -1,17 +1,17 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>입덕볶이</title>
 
-    <!-- Noto Sans KR 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- CSS 연결 -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -19,69 +19,70 @@
 
     <div class="container">
 
-        <!-- Header -->
+        <!-- ==========================
+             헤더
+        =========================== -->
+
         <header class="header">
 
-            <!-- 로고 -->
             <a href="index.html" class="logo">
                 <img src="img/logo.png" alt="입덕볶이 로고">
             </a>
 
-            <!-- 햄버거 메뉴 -->
-            <button class="menu-button" id="menuOpen" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sideMenu">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
+            <button class="menu-button" id="menuOpen" aria-label="메뉴 열기">
+
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+
                     <path d="M4 6h16"/>
                     <path d="M4 12h16"/>
                     <path d="M4 18h16"/>
+
                 </svg>
+
             </button>
 
         </header>
 
 
-        <!-- 슬라이드 메뉴 -->
+        <!-- ==========================
+             햄버거 슬라이드 메뉴
+        =========================== -->
+
         <div class="menu-layer" id="menuLayer">
 
-            <!-- 어두운 배경 -->
             <div class="menu-overlay" id="menuOverlay"></div>
 
-            <!-- 사이드 메뉴 -->
-            <nav class="side-menu" id="sideMenu" aria-label="페이지 메뉴">
+            <nav class="side-menu">
 
-                <!-- 닫기 버튼 -->
                 <div class="side-menu-header">
 
-                    <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round">
+                    <button id="menuClose" aria-label="메뉴 닫기">
+
+                        <svg width="28" height="28" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+
                             <path d="M18 6 6 18"/>
                             <path d="m6 6 12 12"/>
+
                         </svg>
+
                     </button>
 
                 </div>
 
-                <!-- 메뉴 리스트 -->
                 <ul class="side-menu-list">
+
                     <li><a href="sub/lists/lists.html">리스트페이지</a></li>
+
                     <li><a href="sub/detail/detail.html">상세페이지</a></li>
+
                     <li><a href="sub/payment/payment.html">결제페이지</a></li>
-                    <li><a href="sub/payment_finish/payment_finish.html">결제</a></li>
+
+                    <li><a href="sub/payment_finish/payment_finish.html">결제 완료</a></li>
+
                 </ul>
 
             </nav>
@@ -89,253 +90,1267 @@
         </div>
 
 
-        <!-- Hero -->
+        <!-- ==========================
+             배달 주소
+        =========================== -->
+
+        <button class="address-bar" id="addressOpen">
+
+            <svg width="22" height="22" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+
+                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+
+            </svg>
+
+            <span id="currentAddress">
+                배달 주소를 설정해 주세요
+            </span>
+
+            <svg class="address-arrow" width="20" height="20"
+                viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+
+                <path d="m6 9 6 6 6-6"/>
+
+            </svg>
+
+        </button>
+
+
+        <!-- 배달 주소 설정 팝업 -->
+
+        <div class="address-popup" id="addressPopup">
+
+            <div class="address-panel">
+
+                <div class="popup-header">
+
+                    <h2>배달 주소 설정</h2>
+
+                    <button id="addressClose" aria-label="닫기">✕</button>
+
+                </div>
+
+                <p class="address-description">
+                    맛있는 입덕볶이를 어디로 보내드릴까요?
+                </p>
+
+                <form id="addressForm">
+
+                    <div class="input-group">
+
+                        <label for="addressName">주소 별명</label>
+
+                        <input type="text" id="addressName"
+                            placeholder="예: 우리 집" required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="addressInput">배달 주소</label>
+
+                        <input type="text" id="addressInput"
+                            placeholder="도로명 주소를 입력해 주세요" required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="addressDetail">상세 주소</label>
+
+                        <input type="text" id="addressDetail"
+                            placeholder="동, 호수 등 상세 주소">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="addressPhone">연락처</label>
+
+                        <input type="tel" id="addressPhone"
+                            placeholder="010-0000-0000" required>
+
+                    </div>
+
+                    <button type="submit" class="address-save">
+                        배달 주소 저장하기
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================
+             메인 비주얼
+        =========================== -->
+
         <section class="hero">
-        </section>
 
+            <div class="hero-text">
 
-        <!-- Section 1 : 주문 버튼 -->
-        <section class="section_1">
+                <p class="hero-subtitle">
+                    한 입 먹으면, 입덕 완료!
+                </p>
 
-            <a href="#" class="order-button delivery">
-                배달 주문하기
-            </a>
-
-            <div class="order-row">
-
-                <a href="#" class="order-button">
-                    전화 주문하기
-                </a>
-
-                <a href="#" class="order-button">
-                    쿠폰 사용
-                </a>
+                <h1>
+                    오늘도 맛있게<br>
+                    입덕할 시간!
+                </h1>
 
             </div>
+
+            <img class="hero-image"
+                src="img/main.webp"
+                alt="오리지널 입덕볶이">
 
         </section>
 
 
-        <!-- Section 2 : 추천 메뉴 -->
-        <section class="section_2">
+        <!-- ==========================
+             SECTION 1. 주문 버튼
+        =========================== -->
 
-            <h2 class="section-title">추천 메뉴</h2>
+        <section class="section01">
 
-            <!-- 해시태그 버튼 -->
-            <div class="tab-list">
+            <div class="quick-menu">
 
-                <button class="tab-button active">
-                    # 해시태그
-                </button>
+                <!-- 배달 주문 -->
 
-                <button class="tab-button">
-                    # 해시태그
-                </button>
+                <a href="sub/lists/lists.html" class="quick-button">
 
-                <button class="tab-button">
-                    # 해시태그
-                </button>
+                    <svg width="30" height="30" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
 
-            </div>
+                        <circle cx="5.5" cy="17.5" r="3.5"/>
+                        <circle cx="18.5" cy="17.5" r="3.5"/>
+                        <path d="M15 6h2l3 7M5.5 17.5 9 10l4 7.5h5.5"/>
+                        <path d="M7 10h4M12 6h3"/>
 
-            <!-- 추천 메뉴 콘텐츠 -->
-            <div class="recommend-list">
+                    </svg>
 
-                <!-- 왼쪽 카드 -->
-                <article class="recommend-card">
+                    <span>배달 주문하기</span>
 
-                    <p class="best-rank">BEST 3</p>
-                    <h3 class="recommend-name">꾸덕 치즈 떡볶이</h3>
-
-                    <a href="#" class="recommend-order">
-                        주문하기
-                    </a>
-
-                    <div class="recommend-image recommend-image-3"></div>
-
-                </article>
-
-                <!-- 가운데 카드 -->
-                <article class="recommend-card selected">
-
-                    <p class="best-rank">BEST 1</p>
-                    <h3 class="recommend-name">입덕 오리지널 떡볶이</h3>
-
-                    <a href="#" class="recommend-order">
-                        주문하기
-                    </a>
-
-                    <div class="recommend-image recommend-image-1"></div>
-
-                </article>
-
-                <!-- 오른쪽 카드 -->
-                <article class="recommend-card">
-
-                    <p class="best-rank">BEST 2</p>
-                    <h3 class="recommend-name">매콤 로제 떡볶이</h3>
-
-                    <a href="#" class="recommend-order">
-                        주문하기
-                    </a>
-
-                    <div class="recommend-image recommend-image-2"></div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- Section 3 : 메뉴 -->
-        <section class="section_3">
-
-            <h2 class="section-title">메뉴</h2>
-
-            <!-- 탭 메뉴 -->
-            <div class="tab-list">
-
-                <button class="tab-button active">
-                    탭 메뉴 1
-                </button>
-
-                <button class="tab-button">
-                    탭 메뉴 2
-                </button>
-
-                <button class="tab-button">
-                    탭 메뉴 3
-                </button>
-
-            </div>
-
-            <!-- 메뉴 콘텐츠 -->
-            <div class="menu-list">
-
-                <a href="#" class="menu-item">
-                    <div class="menu-image menu-image-1"></div>
-                    <h3 class="menu-name">입덕 오리지널 떡볶이</h3>
                 </a>
 
-                <a href="#" class="menu-item">
-                    <div class="menu-image menu-image-2"></div>
-                    <h3 class="menu-name">매콤 로제 떡볶이</h3>
-                </a>
 
-                <a href="#" class="menu-item">
-                    <div class="menu-image menu-image-3"></div>
-                    <h3 class="menu-name">꾸덕 치즈 떡볶이</h3>
-                </a>
+                <!-- 전화 주문 -->
 
-                <a href="#" class="menu-item">
-                    <div class="menu-image menu-image-4"></div>
-                    <h3 class="menu-name">매콤 국물 떡볶이</h3>
-                </a>
+                <button class="quick-button" id="phoneOrder">
+
+                    <svg width="30" height="30" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+
+                        <path d="M22 16.9v3a2 2 0 0 1-2.2 2
+                        19.8 19.8 0 0 1-8.6-3.1
+                        19.5 19.5 0 0 1-6-6
+                        19.8 19.8 0 0 1-3.1-8.7
+                        A2 2 0 0 1 4.1 2h3
+                        a2 2 0 0 1 2 1.7
+                        c.1 1 .4 2 .7 2.9
+                        a2 2 0 0 1-.5 2.1L8 10
+                        a16 16 0 0 0 6 6l1.3-1.3
+                        a2 2 0 0 1 2.1-.5
+                        c.9.3 1.9.6 2.9.7
+                        a2 2 0 0 1 1.7 2Z"/>
+
+                    </svg>
+
+                    <span>전화 주문하기</span>
+
+                </button>
+
+
+                <!-- 쿠폰 사용 -->
+
+                <button class="quick-button" id="couponButton">
+
+                    <svg width="30" height="30" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+
+                        <path d="M4 8a2 2 0 0 0 0 4
+                        2 2 0 0 0 0 4v2h16v-2
+                        a2 2 0 0 1 0-4
+                        2 2 0 0 1 0-4V6H4Z"/>
+
+                        <path d="M13 6v3M13 11v2M13 15v3"/>
+
+                    </svg>
+
+                    <span>쿠폰 사용</span>
+
+                </button>
 
             </div>
 
         </section>
 
 
-        <!-- Section 4 : 이벤트 -->
-        <section class="section_4">
+        <!-- ==========================
+             SECTION 2. 추천 메뉴
+        =========================== -->
 
-            <h2 class="section-title">이벤트</h2>
+        <section class="section02">
+
+            <div class="section-heading">
+
+                <h2>추천 메뉴</h2>
+
+            </div>
+
+            <div class="recommend-tabs">
+
+                <button class="recommend-tab active"
+                    data-best="1">
+                    # 인기메뉴
+                </button>
+
+                <button class="recommend-tab"
+                    data-best="2">
+                    # 매콤한
+                </button>
+
+                <button class="recommend-tab"
+                    data-best="0">
+                    # 꾸덕한
+                </button>
+
+            </div>
+
+
+            <!-- 추천 메뉴 슬라이드 -->
+
+            <div class="recommend-slider" id="recommendSlider">
+
+                <div class="recommend-track" id="recommendTrack">
+
+                    <!-- 추천 메뉴 자동 생성 -->
+
+                </div>
+
+            </div>
+
+
+            <!-- 슬라이드 페이지 표시 -->
+
+            <div class="recommend-dots">
+
+                <button class="recommend-dot"
+                    data-index="0" aria-label="BEST 3"></button>
+
+                <button class="recommend-dot active"
+                    data-index="1" aria-label="BEST 1"></button>
+
+                <button class="recommend-dot"
+                    data-index="2" aria-label="BEST 2"></button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             SECTION 3. 메뉴
+        =========================== -->
+
+        <section class="section03">
+
+            <div class="section-heading">
+
+                <h2>메뉴</h2>
+
+                <a href="sub/lists/lists.html" class="view-all">
+                    전체 보기
+                    <span>›</span>
+                </a>
+
+            </div>
+
+
+            <!-- 메뉴 카테고리 -->
+
+            <div class="category-list">
+
+                <button class="category-button active"
+                    data-category="main">
+                    메인메뉴
+                </button>
+
+                <button class="category-button"
+                    data-category="set">
+                    세트메뉴
+                </button>
+
+                <button class="category-button"
+                    data-category="single">
+                    1인메뉴
+                </button>
+
+                <button class="category-button"
+                    data-category="side">
+                    사이드
+                </button>
+
+                <button class="category-button"
+                    data-category="drink">
+                    음료
+                </button>
+
+            </div>
+
+
+            <!-- 메뉴 카드 -->
+
+            <div class="main-menu-list" id="mainMenuList">
+
+                <!-- 메뉴 카드 자동 생성 -->
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             SECTION 4. 이벤트
+        =========================== -->
+
+        <section class="section04" id="eventSection">
+
+            <div class="section-heading">
+
+                <h2>이벤트</h2>
+
+            </div>
 
             <p class="event-description">
-                매달 추가되는 입덕볶이의 이벤트를 만나보세요!
+                입덕볶이의 특별한 혜택을 만나보세요!
             </p>
 
-            <!-- 이벤트 탭 메뉴 -->
+
+            <!-- 이벤트 탭 -->
+
             <div class="event-tabs">
 
-                <button class="event-tab active">
+                <button class="event-tab active"
+                    data-event="ongoing">
                     진행중
                 </button>
 
-                <button class="event-tab">
+                <button class="event-tab"
+                    data-event="ended">
                     종료
                 </button>
 
-                <button class="event-tab">
+                <button class="event-tab"
+                    data-event="winner">
                     당첨자
                 </button>
 
             </div>
 
-            <!-- 이벤트 콘텐츠 -->
-            <div class="event-list">
 
-                <a href="#" class="event-card">
+            <!-- 이벤트 내용 -->
 
-                    <div class="event-image"></div>
+            <div class="event-list" id="eventList">
 
-                    <div class="event-content">
+                <article class="event-card">
 
-                        <p class="event-subtitle">
-                            [할인중 이벤트]
-                        </p>
+                    <div class="event-image">
 
-                        <h3 class="event-title">
-                            매달 추가되는 입덕볶이의 이벤트 내역입니다.
-                            자세한 내용은 이벤트를 확인해 주세요.
-                        </h3>
+                        <div class="event-banner-text">
 
-                        <p class="event-date">
-                            2026.11.23 - 2026.12.31
-                        </p>
+                            <p>입덕볶이 GRAND OPEN</p>
+
+                            <span class="event-banner-icon">♥</span>
+
+                            <h3>
+                                첫 입덕 기념<br>
+                                2,000원 할인!
+                            </h3>
+
+                            <small>
+                                첫 주문은 더 맛있게!
+                            </small>
+
+                        </div>
 
                     </div>
 
-                </a>
+                    <div class="event-info">
+
+                        <p class="event-subtitle">
+                            신규 고객 이벤트
+                        </p>
+
+                        <h3 class="event-title">
+                            입덕볶이가 처음이라면?
+                            첫 주문 2,000원 할인 혜택을 받아보세요!
+                        </h3>
+
+                    </div>
+
+                </article>
 
             </div>
 
         </section>
 
+
+        <!-- ==========================
+             푸터
+        =========================== -->
+
+        <footer class="footer">
+
+            <img src="img/logo.png" alt="입덕볶이">
+
+            <p>한 입 먹으면, 입덕 완료!</p>
+
+            <p class="copyright">
+                © IPDEOK BOKKI. All rights reserved.
+            </p>
+
+            <small>
+                본 사이트는 시제품 제작을 위한 테스트 사이트입니다.
+            </small>
+
+        </footer>
+
+
+        <!-- ==========================
+             장바구니 고정 버튼
+        =========================== -->
+
+        <a href="sub/lists/lists.html?cart=1"
+            class="cart-button" aria-label="장바구니">
+
+            <svg width="28" height="28" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+
+                <circle cx="8" cy="21" r="1"/>
+                <circle cx="19" cy="21" r="1"/>
+
+                <path d="M2.05 2H5l2.66 13.42
+                a2 2 0 0 0 2 1.58h8.84
+                a2 2 0 0 0 2-1.61L22 7H6"/>
+
+            </svg>
+
+            <span class="cart-count" id="cartCount">0</span>
+
+        </a>
+
     </div>
 
 
-    <!-- JavaScript : 슬라이드 메뉴 -->
+    <!-- ==========================
+         JavaScript
+    =========================== -->
+
     <script>
+
+        // ==========================
+        // 1. 햄버거 메뉴
+        // ==========================
 
         const menuOpen = document.getElementById('menuOpen');
         const menuClose = document.getElementById('menuClose');
         const menuLayer = document.getElementById('menuLayer');
         const menuOverlay = document.getElementById('menuOverlay');
 
-        // 메뉴 열기
         menuOpen.addEventListener('click', function () {
+
             menuLayer.classList.add('active');
-            menuOpen.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
-            menuClose.focus();
+
         });
 
-        // 메뉴 닫기
         function closeMenu() {
+
             menuLayer.classList.remove('active');
-            menuOpen.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
-            menuOpen.focus();
+
         }
 
-        // X 버튼 클릭
         menuClose.addEventListener('click', closeMenu);
-
-        // 어두운 배경 클릭
         menuOverlay.addEventListener('click', closeMenu);
 
-        // ESC 키로 메뉴 닫기
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && menuLayer.classList.contains('active')) {
-                closeMenu();
+
+        // ==========================
+        // 2. 배달 주소 설정
+        // ==========================
+
+        const addressOpen = document.getElementById('addressOpen');
+        const addressClose = document.getElementById('addressClose');
+        const addressPopup = document.getElementById('addressPopup');
+        const addressForm = document.getElementById('addressForm');
+        const currentAddress = document.getElementById('currentAddress');
+
+        function showAddress() {
+
+            const savedAddress = JSON.parse(
+                localStorage.getItem('ipdeokDelivery') || 'null'
+            );
+
+            if (savedAddress) {
+
+                currentAddress.textContent =
+                    savedAddress.name + ' · ' + savedAddress.address;
+
+                document.getElementById('addressName').value =
+                    savedAddress.name;
+
+                document.getElementById('addressInput').value =
+                    savedAddress.address;
+
+                document.getElementById('addressDetail').value =
+                    savedAddress.detail;
+
+                document.getElementById('addressPhone').value =
+                    savedAddress.phone;
+
+            } else {
+
+                currentAddress.textContent =
+                    '배달 주소를 설정해 주세요';
+
             }
+
+        }
+
+        addressOpen.addEventListener('click', function () {
+
+            showAddress();
+
+            addressPopup.classList.add('active');
+
+            document.body.style.overflow = 'hidden';
+
+        });
+
+        function closeAddress() {
+
+            addressPopup.classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+        addressClose.addEventListener('click', closeAddress);
+
+        addressPopup.addEventListener('click', function (event) {
+
+            if (event.target === addressPopup) {
+
+                closeAddress();
+
+            }
+
+        });
+
+        addressForm.addEventListener('submit', function (event) {
+
+            event.preventDefault();
+
+            const deliveryInfo = {
+
+                name: document.getElementById('addressName').value.trim(),
+
+                address: document.getElementById('addressInput').value.trim(),
+
+                detail: document.getElementById('addressDetail').value.trim(),
+
+                phone: document.getElementById('addressPhone').value.trim()
+
+            };
+
+            if (!deliveryInfo.name || !deliveryInfo.address ||
+                !deliveryInfo.phone) {
+
+                alert('필수 정보를 입력해 주세요.');
+
+                return;
+
+            }
+
+            localStorage.setItem(
+                'ipdeokDelivery',
+                JSON.stringify(deliveryInfo)
+            );
+
+            showAddress();
+
+            closeAddress();
+
+        });
+
+
+        // ==========================
+        // 3. 추천 메뉴 데이터
+        // ==========================
+
+        const bestMenus = [
+
+            {
+                rank: 3,
+                name: '꾸덕 치즈 떡볶이',
+                description: '쭈우욱 늘어나는 치즈가 가득!',
+                image: 'img/cheese.webp',
+                link: 'sub/detail/detail.html?category=main&item=3'
+            },
+
+            {
+                rank: 1,
+                name: '입덕 오리지널 떡볶이',
+                description: '한 입 먹으면 입덕 완료!',
+                image: 'img/basic.webp',
+                link: 'sub/detail/detail.html?category=main&item=0'
+            },
+
+            {
+                rank: 2,
+                name: '매콤 로제 떡볶이',
+                description: '부드럽고 꾸덕한 로제의 매력!',
+                image: 'img/rose.webp',
+                link: 'sub/detail/detail.html?category=main&item=1'
+            }
+
+        ];
+
+
+        let currentBest = 1;
+
+        const recommendTrack =
+            document.getElementById('recommendTrack');
+
+        const recommendSlider =
+            document.getElementById('recommendSlider');
+
+        const recommendTabs =
+            document.querySelectorAll('.recommend-tab');
+
+        const recommendDots =
+            document.querySelectorAll('.recommend-dot');
+
+
+        function showBestMenus() {
+
+            recommendTrack.innerHTML = '';
+
+            const order = [
+
+                (currentBest + 2) % 3,
+
+                currentBest,
+
+                (currentBest + 1) % 3
+
+            ];
+
+            order.forEach(function (menuIndex, position) {
+
+                const menu = bestMenus[menuIndex];
+
+                const card = document.createElement('article');
+
+                card.className = 'recommend-card';
+
+                if (position === 1) {
+
+                    card.classList.add('active');
+
+                }
+
+                card.innerHTML = `
+
+                    <p class="best-rank">
+                        BEST ${menu.rank}
+                    </p>
+
+                    <h3 class="best-name">
+                        ${menu.name}
+                    </h3>
+
+                    <p class="best-description">
+                        ${menu.description}
+                    </p>
+
+                    <img class="best-image"
+                        src="${menu.image}"
+                        alt="${menu.name}">
+
+                `;
+
+                card.addEventListener('click', function () {
+
+                    if (menuIndex === currentBest) {
+
+                        window.location.href = menu.link;
+
+                    } else {
+
+                        currentBest = menuIndex;
+
+                        showBestMenus();
+
+                    }
+
+                });
+
+                recommendTrack.appendChild(card);
+
+            });
+
+            recommendTabs.forEach(function (tab) {
+
+                tab.classList.toggle(
+                    'active',
+                    Number(tab.dataset.best) === currentBest
+                );
+
+            });
+
+            recommendDots.forEach(function (dot) {
+
+                dot.classList.toggle(
+                    'active',
+                    Number(dot.dataset.index) === currentBest
+                );
+
+            });
+
+        }
+
+
+        // 추천 메뉴 해시태그 선택
+
+        recommendTabs.forEach(function (tab) {
+
+            tab.addEventListener('click', function () {
+
+                currentBest = Number(tab.dataset.best);
+
+                showBestMenus();
+
+            });
+
+        });
+
+
+        // 추천 메뉴 페이지 표시 클릭
+
+        recommendDots.forEach(function (dot) {
+
+            dot.addEventListener('click', function () {
+
+                currentBest = Number(dot.dataset.index);
+
+                showBestMenus();
+
+            });
+
+        });
+
+
+        // 추천 메뉴 터치 슬라이드
+
+        let touchStartX = 0;
+
+        recommendSlider.addEventListener('touchstart', function (event) {
+
+            touchStartX = event.changedTouches[0].clientX;
+
+        }, { passive: true });
+
+        recommendSlider.addEventListener('touchend', function (event) {
+
+            const touchEndX = event.changedTouches[0].clientX;
+
+            const distance = touchStartX - touchEndX;
+
+            if (distance > 50) {
+
+                currentBest = (currentBest + 1) % 3;
+
+                showBestMenus();
+
+            } else if (distance < -50) {
+
+                currentBest = (currentBest + 2) % 3;
+
+                showBestMenus();
+
+            }
+
+        }, { passive: true });
+
+
+        // ==========================
+        // 4. 메뉴 데이터
+        // ==========================
+
+        const menus = {
+
+            // 메인메뉴
+
+            main: [
+
+                {
+                    name: '오리지널 입덕볶이',
+                    price: 9900,
+                    image: 'img/basic.webp',
+                    item: 0
+                },
+
+                {
+                    name: '꾸덕 로제에 입덕볶이',
+                    price: 11900,
+                    image: 'img/rose.webp',
+                    item: 1
+                },
+
+                {
+                    name: '매움에 입덕볶이',
+                    price: 11900,
+                    image: 'img/spicy.webp',
+                    item: 2
+                },
+
+                {
+                    name: '치즈 듬뿍에 입덕볶이',
+                    price: 12900,
+                    image: 'img/cheese.webp',
+                    item: 3
+                },
+
+                {
+                    name: '짜장에 입덕볶이',
+                    price: 11900,
+                    image: 'img/jja.webp',
+                    item: 4
+                },
+
+                {
+                    name: '토핑 가득에 입덕볶이',
+                    price: 13900,
+                    image: 'img/toping.webp',
+                    item: 5
+                }
+
+            ],
+
+
+            // 세트메뉴
+
+            set: [
+
+                {
+                    name: '입덕 세트',
+                    price: 15900,
+                    image: 'sub/lists/img/set01.png',
+                    item: 0
+                },
+
+                {
+                    name: '친구랑 세트',
+                    price: 19900,
+                    image: 'sub/lists/img/set02.png',
+                    item: 1
+                },
+
+                {
+                    name: '모둠 튀김 세트',
+                    price: 17900,
+                    image: 'sub/lists/img/set03.png',
+                    item: 2
+                },
+
+                {
+                    name: '패밀리 세트',
+                    price: 29900,
+                    image: 'sub/lists/img/set04.png',
+                    item: 3
+                }
+
+            ],
+
+
+            // 1인메뉴
+
+            single: [
+
+                {
+                    name: '1인 오리지널 입덕볶이',
+                    price: 5900,
+                    image: 'sub/lists/img/single01.png',
+                    item: 0
+                },
+
+                {
+                    name: '1인 꾸덕 로제',
+                    price: 6900,
+                    image: 'sub/lists/img/single02.png',
+                    item: 1
+                },
+
+                {
+                    name: '1인 치즈 떡볶이',
+                    price: 7900,
+                    image: 'sub/lists/img/single03.png',
+                    item: 2
+                },
+
+                {
+                    name: '1인 매운 떡볶이',
+                    price: 6900,
+                    image: 'sub/lists/img/single04.png',
+                    item: 3
+                }
+
+            ],
+
+
+            // 사이드
+
+            side: [
+
+                {
+                    name: '모둠 튀김',
+                    price: 4500,
+                    image: 'sub/lists/img/side01.png',
+                    item: 0
+                },
+
+                {
+                    name: '김말이',
+                    price: 3000,
+                    image: 'sub/lists/img/side02.png',
+                    item: 1
+                },
+
+                {
+                    name: '찰순대',
+                    price: 4500,
+                    image: 'sub/lists/img/side03.png',
+                    item: 2
+                },
+
+                {
+                    name: '참치마요 주먹밥',
+                    price: 3500,
+                    image: 'sub/lists/img/side04.png',
+                    item: 3
+                },
+
+                {
+                    name: '치즈볼',
+                    price: 4000,
+                    image: 'sub/lists/img/side05.png',
+                    item: 4
+                },
+
+                {
+                    name: '꼬치 어묵',
+                    price: 3000,
+                    image: 'sub/lists/img/side06.png',
+                    item: 5
+                }
+
+            ],
+
+
+            // 음료
+
+            drink: [
+
+                {
+                    name: '콜라',
+                    price: 2000,
+                    image: 'sub/lists/img/drink01.png',
+                    item: 0
+                },
+
+                {
+                    name: '사이다',
+                    price: 2000,
+                    image: 'sub/lists/img/drink02.png',
+                    item: 1
+                },
+
+                {
+                    name: '쿨피스',
+                    price: 2500,
+                    image: 'sub/lists/img/drink03.png',
+                    item: 2
+                },
+
+                {
+                    name: '제로콜라',
+                    price: 2000,
+                    image: 'sub/lists/img/drink04.png',
+                    item: 3
+                }
+
+            ]
+
+        };
+
+
+        // ==========================
+        // 5. 메뉴 카드 표시
+        // ==========================
+
+        let currentCategory = 'main';
+
+        const mainMenuList =
+            document.getElementById('mainMenuList');
+
+        const categoryButtons =
+            document.querySelectorAll('.category-button');
+
+
+        function showMenus() {
+
+            mainMenuList.innerHTML = '';
+
+            menus[currentCategory].slice(0, 4).forEach(function (menu) {
+                const card = document.createElement('article');
+
+                card.className = 'menu-card';
+
+                card.innerHTML = `
+
+                    <a href="sub/detail/detail.html?category=${currentCategory}&item=${menu.item}"
+                        class="menu-link">
+
+                        <div class="menu-image">
+
+                            <img src="${menu.image}"
+                                alt="${menu.name}">
+
+                        </div>
+
+                        <div class="menu-info">
+
+                            <h3 class="menu-name">
+                                ${menu.name}
+                            </h3>
+
+                            <p class="menu-price">
+                                ${menu.price.toLocaleString('ko-KR')}원
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                `;
+
+                mainMenuList.appendChild(card);
+
+            });
+
+        }
+
+
+        // 메뉴 카테고리 변경
+
+        categoryButtons.forEach(function (button) {
+
+            button.addEventListener('click', function () {
+
+                categoryButtons.forEach(function (item) {
+
+                    item.classList.remove('active');
+
+                });
+
+                button.classList.add('active');
+
+                currentCategory = button.dataset.category;
+
+                showMenus();
+
+            });
+
+        });
+
+
+        // ==========================
+        // 6. 이벤트 탭
+        // ==========================
+
+        const eventTabs =
+            document.querySelectorAll('.event-tab');
+
+        const eventList =
+            document.getElementById('eventList');
+
+        const ongoingEvent = eventList.innerHTML;
+
+
+        function showEvents(type) {
+
+            eventTabs.forEach(function (tab) {
+
+                tab.classList.toggle(
+                    'active',
+                    tab.dataset.event === type
+                );
+
+            });
+
+            if (type === 'ongoing') {
+
+                eventList.innerHTML = ongoingEvent;
+
+            } else if (type === 'ended') {
+
+                eventList.innerHTML = `
+
+                    <div class="empty-event">
+
+                        <span>♡</span>
+
+                        <p>종료된 이벤트가 없습니다.</p>
+
+                    </div>
+
+                `;
+
+            } else {
+
+                eventList.innerHTML = `
+
+                    <div class="empty-event">
+
+                        <span>♡</span>
+
+                        <p>당첨자 발표가 없습니다.</p>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+        eventTabs.forEach(function (tab) {
+
+            tab.addEventListener('click', function () {
+
+                showEvents(tab.dataset.event);
+
+            });
+
+        });
+
+
+        // ==========================
+        // 7. 주문 및 쿠폰 버튼
+        // ==========================
+
+        document.getElementById('phoneOrder')
+            .addEventListener('click', function () {
+
+                alert('전화 주문은 시제품에서 지원하지 않습니다.');
+
+            });
+
+        document.getElementById('couponButton')
+            .addEventListener('click', function () {
+
+                showEvents('ongoing');
+
+                document.getElementById('eventSection')
+                    .scrollIntoView({
+
+                        behavior: 'smooth'
+
+                    });
+
+            });
+
+
+        // ==========================
+        // 8. 장바구니 수량 연동
+        // ==========================
+
+        const cartCount = document.getElementById('cartCount');
+
+
+        function updateCart() {
+
+            const cart = JSON.parse(
+                localStorage.getItem('ipdeokOrderCart') || '[]'
+            );
+
+            const totalQuantity = cart.reduce(function (sum, item) {
+
+                return sum + item.qty;
+
+            }, 0);
+
+            cartCount.textContent = totalQuantity;
+
+            cartCount.style.display =
+                totalQuantity > 0 ? 'flex' : 'none';
+
+        }
+
+
+        // ==========================
+        // 9. ESC 키로 팝업 닫기
+        // ==========================
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'Escape') {
+
+                closeMenu();
+
+                closeAddress();
+
+            }
+
+        });
+
+
+        // ==========================
+        // 10. 페이지 최초 실행
+        // ==========================
+
+        showAddress();
+
+        showBestMenus();
+
+        showMenus();
+
+        updateCart();
+
+
+        window.addEventListener('pageshow', function () {
+
+            showAddress();
+
+            updateCart();
+
         });
 
     </script>
 
 </body>
-</html>
 
+</html>

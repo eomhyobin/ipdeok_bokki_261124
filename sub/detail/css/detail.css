@@ -1,0 +1,619 @@
+
+/* ==========================
+   1. 기본 설정
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f5f5f5;
+    color: #38241f;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #fdf1e2;
+    padding-bottom: 150px;
+    overflow: hidden;
+}
+
+
+/* ==========================
+   2. 헤더
+========================== */
+
+.header {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+.back-button,
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==========================
+   3. 햄버거 슬라이드 메뉴
+========================== */
+
+.menu-layer {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: visibility 0.3s;
+    z-index: 200;
+}
+
+.menu-layer.active {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.menu-overlay {
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.menu-layer.active .menu-overlay {
+    opacity: 1;
+}
+
+.side-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 66.6667%;
+    height: 100%;
+
+    padding: 20px;
+    background-color: #fdf1e2;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.menu-layer.active .side-menu {
+    transform: translateX(0);
+}
+
+.side-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+}
+
+.side-menu-list li {
+    border-bottom: 1px solid #dfd0c2;
+}
+
+.side-menu-list a {
+    display: block;
+    padding: 20px 0;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* ==========================
+   4. 메뉴 대표 이미지
+========================== */
+
+.product-image {
+    width: 100%;
+    height: 340px;
+
+    background-color: #f5e5d5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ==========================
+   5. 메뉴 기본 정보
+========================== */
+
+.product-info {
+    padding: 28px 20px;
+    border-bottom: 8px solid #efdfce;
+}
+
+.product-category {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ef402b;
+
+    margin-bottom: 8px;
+}
+
+.product-info h1 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.product-description {
+    margin-top: 10px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+
+    color: #79665e;
+}
+
+.product-price {
+    margin-top: 18px;
+
+    font-size: 26px;
+    font-weight: 700;
+    color: #ef402b;
+}
+
+
+/* ==========================
+   6. 옵션 선택 영역
+========================== */
+
+.option-section {
+    padding: 26px 20px;
+    border-bottom: 8px solid #efdfce;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 6px;
+}
+
+.section-title h2,
+.quantity-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.required-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #ef402b;
+
+    padding: 5px 10px;
+    border-radius: 15px;
+
+    background-color: #ffe1d8;
+}
+
+.optional-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #79665e;
+
+    padding: 5px 10px;
+    border-radius: 15px;
+
+    background-color: #efdfce;
+}
+
+.option-description {
+    font-size: 13px;
+    color: #79665e;
+
+    margin-bottom: 20px;
+}
+
+.option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 54px;
+    padding: 14px;
+
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: background-color 0.2s,
+                border-color 0.2s;
+}
+
+.option-item:has(input:checked) {
+    border-color: #ef402b;
+    background-color: #fff8f4;
+}
+
+.option-item input {
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+
+    accent-color: #ef402b;
+    cursor: pointer;
+}
+
+.option-price {
+    margin-left: auto;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================
+   7. 수량 선택
+========================== */
+
+.quantity-section {
+    padding: 26px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 130px;
+    height: 44px;
+
+    background-color: #ffffff;
+    border: 1px solid #dfd0c2;
+    border-radius: 12px;
+}
+
+.quantity-box button {
+    width: 42px;
+    height: 42px;
+
+    font-size: 24px;
+    font-weight: 400;
+    color: #ef402b;
+}
+
+.quantity-box button:disabled {
+    color: #cccccc;
+    cursor: default;
+}
+
+.quantity-box span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* ==========================
+   8. 하단 고정 주문 영역
+========================== */
+
+.order-footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+
+    padding: 18px 20px 20px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+
+    background-color: #ffffff;
+    border-radius: 20px 20px 0 0;
+
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
+
+    z-index: 90;
+}
+
+.total-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.total-box span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.total-box strong {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ef402b;
+}
+
+.order-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.add-cart-button,
+.order-button {
+    flex: 1;
+
+    height: 52px;
+
+    border-radius: 15px;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.add-cart-button {
+    border: 1.5px solid #ef402b;
+    background-color: #ffffff;
+    color: #ef402b;
+}
+
+.order-button {
+    background-color: #ef402b;
+    color: #ffffff;
+}
+
+.add-cart-button:active,
+.order-button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================
+   9. 장바구니 담기 완료 팝업
+========================== */
+
+.confirm-popup {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    height: 100dvh;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity 0.2s,
+                visibility 0.2s;
+
+    z-index: 150;
+}
+
+.confirm-popup.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.confirm-box {
+    width: 100%;
+    max-width: 360px;
+
+    padding: 30px 20px 20px;
+
+    background-color: #fdf1e2;
+    border-radius: 25px;
+
+    text-align: center;
+}
+
+.confirm-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ef402b;
+    color: #ffffff;
+    border-radius: 50%;
+}
+
+.confirm-box h2 {
+    font-size: 21px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.confirm-box p {
+    font-size: 13px;
+    color: #79665e;
+
+    margin-bottom: 25px;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.confirm-buttons a {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 48px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.continue-button {
+    border: 1px solid #ef402b;
+    color: #ef402b;
+}
+
+.view-cart-button {
+    background-color: #ef402b;
+    color: #ffffff;
+}
+
+
+/* ==========================
+   10. 모바일 반응형
+========================== */
+
+@media (max-width: 360px) {
+
+    .product-image {
+        height: 280px;
+    }
+
+    .product-info h1 {
+        font-size: 23px;
+    }
+
+    .product-price {
+        font-size: 23px;
+    }
+
+    .option-item {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .option-price {
+        font-size: 13px;
+    }
+
+    .add-cart-button,
+    .order-button {
+        font-size: 14px;
+    }
+
+    .confirm-box h2 {
+        font-size: 18px;
+    }
+
+    .confirm-buttons a {
+        font-size: 12px;
+    }
+
+}
+/* 햄버거 메뉴 호버 효과 */
+
+.side-menu-list a {
+    display: block;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.side-menu-list a:hover {
+    color: #ef402b;
+    background-color: transparent;
+}

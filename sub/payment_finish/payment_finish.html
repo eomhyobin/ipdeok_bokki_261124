@@ -1,12 +1,730 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>입덕볶이 - 주문 완료</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/payment_finish.css">
 </head>
+
 <body>
-    
+
+    <div class="container">
+
+        <!-- 헤더 -->
+        <header class="header">
+
+            <a href="../../index.html" class="back-button" aria-label="메인으로 돌아가기">
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+            </a>
+
+            <a href="../../index.html" class="logo">
+                <img src="../lists/img/logo.png" alt="입덕볶이">
+            </a>
+
+            <button class="menu-button" id="menuOpen" aria-label="메뉴 열기">
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                </svg>
+            </button>
+
+        </header>
+
+
+        <!-- 햄버거 슬라이드 메뉴 -->
+        <div class="menu-layer" id="menuLayer">
+
+            <div class="menu-overlay" id="menuOverlay"></div>
+
+            <nav class="side-menu">
+
+                <div class="side-menu-header">
+
+                    <button id="menuClose" aria-label="메뉴 닫기">
+                        <svg width="28" height="28" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </button>
+
+                </div>
+
+                <ul class="side-menu-list">
+
+    <li>
+        <a href="../../index.html">메인페이지</a>
+    </li>
+
+    <li>
+        <a href="../lists/lists.html">리스트페이지</a>
+    </li>
+
+    <li>
+        <a href="../detail/detail.html">상세페이지</a>
+    </li>
+
+    <li>
+        <a href="../payment/payment.html">결제페이지</a>
+    </li>
+
+</ul>
+            </nav>
+
+        </div>
+
+
+        <!-- 주문 정보가 없을 때 -->
+        <section class="empty-section" id="emptySection" hidden>
+
+            <div class="empty-icon">
+
+                <svg width="48" height="48" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 3h12l3 4v13H3V7Z"/>
+                    <path d="M3 7h18"/>
+                    <path d="M16 11a4 4 0 0 1-8 0"/>
+                </svg>
+
+            </div>
+
+            <h1>아직 주문 내역이 없어요!</h1>
+
+            <p>맛있는 입덕볶이를 만나러 가볼까요?</p>
+
+            <a href="../lists/lists.html" class="empty-button">
+                메뉴 보러 가기
+            </a>
+
+        </section>
+
+
+        <!-- 주문 완료 전체 영역 -->
+        <main id="completedContent" hidden>
+
+
+            <!-- 주문 완료 메시지 -->
+            <section class="success-section">
+
+                <div class="success-animation">
+
+                    <span class="sparkle sparkle01">✦</span>
+
+                    <span class="sparkle sparkle02">✧</span>
+
+                    <span class="sparkle sparkle03">✦</span>
+
+                    <span class="sparkle sparkle04">✧</span>
+
+                    <div class="success-circle">
+
+                        <svg width="55" height="55" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round">
+
+                            <path d="m20 6-11 11-5-5"/>
+
+                        </svg>
+
+                    </div>
+
+                </div>
+
+                <h1>입덕 완료!</h1>
+
+                <h2>주문이 완료되었어요.</h2>
+
+                <p class="success-description">
+
+                    맛있는 입덕볶이가 곧 찾아갈게요!<br>
+
+                    조금만 기다려 주세요 ♥
+
+                </p>
+
+
+                <!-- 예상 배달 시간 -->
+                <div class="delivery-time">
+
+                    <p>예상 배달 시간</p>
+
+                    <strong>30 ~ 40<span>분</span></strong>
+
+                    <small>시제품 기준 예상 시간</small>
+
+                </div>
+
+            </section>
+
+
+            <!-- 주문 현황 -->
+            <section class="status-section">
+
+                <div class="status-card">
+
+                    <h2>주문 현황</h2>
+
+                    <div class="status-list">
+
+                        <div class="status-step active">
+
+                            <div class="status-icon">
+
+                                <svg width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+
+                                    <path d="m20 6-11 11-5-5"/>
+
+                                </svg>
+
+                            </div>
+
+                            <span>주문 접수</span>
+
+                        </div>
+
+
+                        <div class="status-step">
+
+                            <div class="status-icon">
+
+                                <svg width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+
+                                    <path d="M3 12h18"/>
+                                    <path d="M5 12v5a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-5"/>
+                                    <path d="M9 3v4M12 2v5M15 3v4"/>
+
+                                </svg>
+
+                            </div>
+
+                            <span>조리 중</span>
+
+                        </div>
+
+
+                        <div class="status-step">
+
+                            <div class="status-icon">
+
+                                <svg width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+
+                                    <rect x="1" y="5" width="15" height="12" rx="1"/>
+                                    <path d="M16 9h4l3 4v4h-7"/>
+                                    <circle cx="5.5" cy="18" r="2.5"/>
+                                    <circle cx="18.5" cy="18" r="2.5"/>
+
+                                </svg>
+
+                            </div>
+
+                            <span>배달 중</span>
+
+                        </div>
+
+
+                        <div class="status-step">
+
+                            <div class="status-icon">
+
+                                <svg width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+
+                                    <path d="m3 10 9-7 9 7v10H3Z"/>
+                                    <path d="M9 20v-6h6v6"/>
+
+                                </svg>
+
+                            </div>
+
+                            <span>배달 완료</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- 주문 내역 -->
+            <section class="finish-section">
+
+                <div class="section-title">
+
+                    <h2>주문 내역</h2>
+
+                    <span id="orderCount">총 0개</span>
+
+                </div>
+
+                <div class="order-meta">
+
+                    <p>
+
+                        <span>주문번호</span>
+
+                        <strong id="orderNumber"></strong>
+
+                    </p>
+
+                    <p>
+
+                        <span>주문일시</span>
+
+                        <strong id="orderDate"></strong>
+
+                    </p>
+
+                </div>
+
+                <div class="order-list" id="orderList">
+
+                    <!-- 주문 메뉴 자동 생성 -->
+
+                </div>
+
+            </section>
+
+
+            <!-- 배달 정보 -->
+            <section class="finish-section">
+
+                <div class="section-title">
+
+                    <h2>배달 정보</h2>
+
+                </div>
+
+                <div class="delivery-card">
+
+                    <div class="delivery-title">
+
+                        <svg width="22" height="22" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+
+                            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                            <circle cx="12" cy="10" r="3"/>
+
+                        </svg>
+
+                        <strong id="addressName"></strong>
+
+                    </div>
+
+                    <p class="address" id="deliveryAddress"></p>
+
+                    <p class="address-detail" id="deliveryDetail"></p>
+
+                    <p class="phone" id="deliveryPhone"></p>
+
+                    <div class="request-info">
+
+                        <span>배달 요청사항</span>
+
+                        <p id="deliveryRequest"></p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- 결제 정보 -->
+            <section class="finish-section price-section">
+
+                <div class="section-title">
+
+                    <h2>결제 정보</h2>
+
+                </div>
+
+                <div class="price-row">
+
+                    <span>결제 수단</span>
+
+                    <strong id="paymentMethod"></strong>
+
+                </div>
+
+                <div class="price-row">
+
+                    <span>총 주문금액</span>
+
+                    <strong id="productTotal">0원</strong>
+
+                </div>
+
+                <div class="price-row">
+
+                    <span>배달비</span>
+
+                    <strong id="deliveryFee">0원</strong>
+
+                </div>
+
+                <div class="price-row discount-row">
+
+                    <span>쿠폰 할인</span>
+
+                    <strong id="discountPrice">0원</strong>
+
+                </div>
+
+                <div class="final-price">
+
+                    <span>최종 결제금액</span>
+
+                    <strong id="finalPrice">0원</strong>
+
+                </div>
+
+                <p class="test-notice">
+
+                    시제품 테스트 주문으로 실제 결제 및 배달은 진행되지 않습니다.
+
+                </p>
+
+            </section>
+
+
+            <!-- 하단 고정 버튼 -->
+            <footer class="finish-footer">
+
+                <a href="../../index.html" class="home-button">
+
+                    메인으로 돌아가기
+
+                </a>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        // ==========================
+        // 1. 주문 완료 정보 불러오기
+        // ==========================
+
+        let order = null;
+
+        try {
+
+            order = JSON.parse(
+                localStorage.getItem('ipdeokLastOrder') || 'null'
+            );
+
+        } catch (error) {
+
+            console.error('주문 정보를 불러올 수 없습니다.', error);
+
+        }
+
+
+        // 금액 표시 함수
+        function won(price) {
+
+            return Number(price || 0).toLocaleString('ko-KR') + '원';
+
+        }
+
+
+        // 텍스트 표시 함수
+        function setText(id, value) {
+
+            document.getElementById(id).textContent = value;
+
+        }
+
+
+        // ==========================
+        // 2. 주문 정보 표시
+        // ==========================
+
+        function showCompletedOrder() {
+
+            const emptySection =
+                document.getElementById('emptySection');
+
+            const completedContent =
+                document.getElementById('completedContent');
+
+
+            // 주문 정보가 없을 때
+            if (!order || !Array.isArray(order.menus) ||
+                order.menus.length === 0) {
+
+                emptySection.hidden = false;
+
+                completedContent.hidden = true;
+
+                return;
+
+            }
+
+
+            emptySection.hidden = true;
+
+            completedContent.hidden = false;
+
+
+            // 주문번호
+            setText('orderNumber', order.orderNumber);
+
+
+            // 주문일시
+            const date = new Date(order.orderDate);
+
+            const formattedDate = date.toLocaleString('ko-KR', {
+
+                year: 'numeric',
+
+                month: '2-digit',
+
+                day: '2-digit',
+
+                hour: '2-digit',
+
+                minute: '2-digit'
+
+            });
+
+            setText('orderDate', formattedDate);
+
+
+            // 총 주문 수량
+            setText(
+                'orderCount',
+                '총 ' + order.totalQuantity + '개'
+            );
+
+
+            // ==========================
+            // 3. 주문 메뉴 표시
+            // ==========================
+
+            const orderList =
+                document.getElementById('orderList');
+
+            orderList.innerHTML = '';
+
+
+            order.menus.forEach(function (menu) {
+
+                const item = document.createElement('article');
+
+                item.className = 'order-item';
+
+
+                const options = [
+
+                    menu.spicy,
+
+                    ...(menu.toppings || [])
+
+                ].filter(Boolean).join(' / ');
+
+
+                item.innerHTML = `
+
+                    <div class="order-image"
+                        style="background-image: url('../lists/${menu.image}')">
+                    </div>
+
+                    <div class="order-info">
+
+                        <h3>${menu.name}</h3>
+
+                        <p class="order-options">
+
+                            ${options || '추가 옵션 없음'}
+
+                        </p>
+
+                        <p class="order-quantity">
+
+                            수량 ${menu.qty}개
+
+                        </p>
+
+                        <strong class="order-price">
+
+                            ${won(menu.total)}
+
+                        </strong>
+
+                    </div>
+
+                `;
+
+                orderList.appendChild(item);
+
+            });
+
+
+            // ==========================
+            // 4. 배달 정보 표시
+            // ==========================
+
+            const delivery = order.delivery || {};
+
+            setText(
+                'addressName',
+                delivery.name || '배달 주소'
+            );
+
+            setText(
+                'deliveryAddress',
+                delivery.address || '주소 정보 없음'
+            );
+
+            setText(
+                'deliveryDetail',
+                delivery.detail || ''
+            );
+
+            setText(
+                'deliveryPhone',
+                delivery.phone || ''
+            );
+
+            setText(
+                'deliveryRequest',
+                order.request || '요청사항 없음'
+            );
+
+
+            // ==========================
+            // 5. 결제 정보 표시
+            // ==========================
+
+            setText(
+                'paymentMethod',
+                order.paymentMethod || '-'
+            );
+
+            setText(
+                'productTotal',
+                won(order.productTotal)
+            );
+
+            setText(
+                'deliveryFee',
+                won(order.deliveryFee)
+            );
+
+            setText(
+                'discountPrice',
+                order.discount > 0
+                    ? '-' + won(order.discount)
+                    : '0원'
+            );
+
+            setText(
+                'finalPrice',
+                won(order.finalTotal)
+            );
+
+        }
+
+
+        // ==========================
+        // 6. 햄버거 메뉴
+        // ==========================
+
+        const menuOpen =
+            document.getElementById('menuOpen');
+
+        const menuClose =
+            document.getElementById('menuClose');
+
+        const menuLayer =
+            document.getElementById('menuLayer');
+
+        const menuOverlay =
+            document.getElementById('menuOverlay');
+
+
+        menuOpen.addEventListener('click', function () {
+
+            menuLayer.classList.add('active');
+
+            document.body.style.overflow = 'hidden';
+
+        });
+
+
+        function closeMenu() {
+
+            menuLayer.classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+
+        menuClose.addEventListener('click', closeMenu);
+
+        menuOverlay.addEventListener('click', closeMenu);
+
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'Escape') {
+
+                closeMenu();
+
+            }
+
+        });
+
+
+        // ==========================
+        // 7. 처음 접속했을 때 실행
+        // ==========================
+
+        showCompletedOrder();
+
+    </script>
+
 </body>
 </html>
