@@ -79,6 +79,9 @@
         <a href="../community/community.html">커뮤니티</a>
     </li>
 
+   <li><a href="../mypage/mypage.html">마이페이지</a></li>
+
+
     <li>
         <a href="../login/login.html">로그인</a>
     </li>
@@ -348,168 +351,166 @@
 
         const menus = {
 
-            main: [
-                {
-                    name: "오리지널 입덕볶이",
-                    description: "매콤달콤 ♥ 입덕볶이의 대표 메뉴",
-                    price: 9900,
-                    image: "img/main01.png"
-                },
-                {
-                    name: "꾸덕 로제에 입덕볶이",
-                    description: "꾸덕꾸덕 ♥ 부드럽고 진한 로제",
-                    price: 11900,
-                    image: "img/main02.png"
-                },
-                {
-                    name: "매움에 입덕볶이",
-                    description: "아 매워 ♥ 스트레스 날려버리자",
-                    price: 11900,
-                    image: "img/main03.png"
-                },
-                {
-                    name: "치즈 듬뿍에 입덕볶이",
-                    description: "쭈우욱 ♥ 늘어나는 치즈가 가득",
-                    price: 12900,
-                    image: "img/main04.png"
-                },
-                {
-                    name: "짜장에 입덕볶이",
-                    description: "짜장에 퐁당 ♥ 밥 갖고온나",
-                    price: 11900,
-                    image: "img/main05.png"
-                },
-                {
-                    name: "토핑 가득에 입덕볶이",
-                    description: "뭐부터 먹지 ♥ 먹을 것이 한가득",
-                    price: 13900,
-                    image: "img/main06.png"
-                }
-            ],
+    main: [
+        {
+            name: "오리지널 입덕볶이",
+            description: "매콤달콤 ♥ 입덕볶이의 대표 메뉴",
+            price: 9900,
+            image: "../../img/basic.webp"
+        },
+        {
+            name: "꾸덕 로제에 입덕볶이",
+            description: "꾸덕꾸덕 ♥ 부드럽고 진한 로제",
+            price: 11900,
+            image: "../../img/rose.webp"
+        },
+        {
+            name: "매움에 입덕볶이",
+            description: "아 매워 ♥ 스트레스 날려버리자",
+            price: 11900,
+            image: "../../img/spicy.webp"
+        },
+        {
+            name: "치즈 듬뿍에 입덕볶이",
+            description: "쭈우욱 ♥ 늘어나는 치즈가 가득",
+            price: 12900,
+            image: "../../img/cheese.webp"
+        },
+        {
+            name: "짜장에 입덕볶이",
+            description: "짜장에 퐁당 ♥ 밥 갖고온나",
+            price: 11900,
+            image: "../../img/jja.webp"
+        },
+        {
+            name: "토핑 가득에 입덕볶이",
+            description: "뭐부터 먹지 ♥ 먹을 것이 한가득",
+            price: 13900,
+            image: "../../img/toping.webp"
+        }
+    ],
 
-            set: [
-                {
-                    name: "입덕 세트",
-                    description: "떡볶이와 튀김의 완벽한 만남",
-                    price: 15900,
-                    image: "img/set01.png"
-                },
-                {
-                    name: "친구랑 세트",
-                    description: "둘이 먹으면 두 배로 맛있어",
-                    price: 19900,
-                    image: "img/set02.png"
-                },
-                {
-                    name: "모둠 튀김 세트",
-                    description: "바삭한 튀김을 한가득",
-                    price: 17900,
-                    image: "img/set03.png"
-                },
-                {
-                    name: "패밀리 세트",
-                    description: "온 가족이 함께 입덕!",
-                    price: 29900,
-                    image: "img/set04.png"
-                }
-            ],
+    set: [
+        {
+            name: "입덕 세트",
+            description: "떡볶이와 튀김의 완벽한 만남",
+            price: 15900,
+            image: "img/set01.webp"
+        },
+        {
+            name: "친구랑 세트",
+            description: "둘이 먹으면 두 배로 맛있어",
+            price: 19900,
+            image: "img/set02.webp"
+        },
+        {
+            name: "모둠 튀김 세트",
+            description: "바삭한 튀김을 한가득",
+            price: 17900,
+            image: "img/set03.webp"
+        },
+        {
+            name: "패밀리 세트",
+            description: "온 가족이 함께 입덕!",
+            price: 29900,
+            image: "img/set04.webp"
+        }
+    ],
 
-            single: [
-                {
-                    name: "1인 오리지널 입덕볶이",
-                    description: "혼자서도 맛있게 입덕 완료",
-                    price: 5900,
-                    image: "img/single01.png"
-                },
-                {
-                    name: "1인 꾸덕 로제",
-                    description: "혼자 즐기는 꾸덕한 로제",
-                    price: 6900,
-                    image: "img/single02.png"
-                },
-                {
-                    name: "1인 치즈 떡볶이",
-                    description: "혼자 먹어도 치즈는 듬뿍",
-                    price: 7900,
-                    image: "img/single03.png"
-                },
-                {
-                    name: "1인 매운 떡볶이",
-                    description: "혼자서도 화끈하게!",
-                    price: 6900,
-                    image: "img/single04.png"
-                }
-            ],
+    single: [
+        {
+            name: "1인 오리지널 입덕볶이",
+            description: "혼자서도 맛있게 입덕 완료",
+            price: 5900,
+            image: "img/single01.webp"
+        },
+        {
+            name: "1인 꾸덕 로제",
+            description: "혼자 즐기는 꾸덕한 로제",
+            price: 6900,
+            image: "img/single02.webp"
+        },
+        {
+            name: "1인 치즈 떡볶이",
+            description: "혼자 먹어도 치즈는 듬뿍",
+            price: 7900,
+            image: "img/single03.webp"
+        },
+        {
+            name: "1인 매운 떡볶이",
+            description: "혼자서도 화끈하게!",
+            price: 6900,
+            image: "img/single04.webp"
+        }
+    ],
 
-            side: [
-                {
-                    name: "모둠 튀김",
-                    description: "바삭바삭 골라 먹는 재미",
-                    price: 4500,
-                    image: "img/side01.png"
-                },
-                {
-                    name: "김말이",
-                    description: "떡볶이 국물에 콕!",
-                    price: 3000,
-                    image: "img/side02.png"
-                },
-                {
-                    name: "찰순대",
-                    description: "쫄깃쫄깃 맛있는 순대",
-                    price: 4500,
-                    image: "img/side03.png"
-                },
-                {
-                    name: "참치마요 주먹밥",
-                    description: "매울 때 한입씩 쏙",
-                    price: 3500,
-                    image: "img/side04.png"
-                },
-                {
-                    name: "치즈볼",
-                    description: "겉은 바삭 속은 쫀득",
-                    price: 4000,
-                    image: "img/side05.png"
-                },
-                {
-                    name: "꼬치 어묵",
-                    description: "따끈한 국물과 함께",
-                    price: 3000,
-                    image: "img/side06.png"
-                }
-            ],
+    side: [
+        {
+            name: "모둠 튀김",
+            description: "바삭바삭 골라 먹는 재미",
+            price: 4500,
+            image: "img/side01.webp"
+        },
+        {
+            name: "김말이",
+            description: "떡볶이 국물에 콕!",
+            price: 3000,
+            image: "img/side02.webp"
+        },
+        {
+            name: "찰순대",
+            description: "쫄깃쫄깃 맛있는 순대",
+            price: 4500,
+            image: "img/side03.webp"
+        },
+        {
+            name: "참치마요 주먹밥",
+            description: "매울 때 한입씩 쏙",
+            price: 3500,
+            image: "img/side04.webp"
+        },
+        {
+            name: "치즈볼",
+            description: "겉은 바삭 속은 쫀득",
+            price: 4000,
+            image: "img/side05.webp"
+        },
+        {
+            name: "꼬치 어묵",
+            description: "따끈한 국물과 함께",
+            price: 3000,
+            image: "img/side06.webp"
+        }
+    ],
 
-            drink: [
-                {
-                    name: "콜라",
-                    description: "톡 쏘는 시원한 탄산",
-                    price: 2000,
-                    image: "img/drink01.png"
-                },
-                {
-                    name: "사이다",
-                    description: "깔끔하고 시원하게",
-                    price: 2000,
-                    image: "img/drink02.png"
-                },
-                {
-                    name: "쿨피스",
-                    description: "매운 떡볶이 필수템",
-                    price: 2500,
-                    image: "img/drink03.png"
-                },
-                {
-                    name: "제로콜라",
-                    description: "가볍게 즐기는 탄산",
-                    price: 2000,
-                    image: "img/drink04.png"
-                }
-            ]
+    drink: [
+        {
+            name: "콜라",
+            description: "톡 쏘는 시원한 탄산",
+            price: 2000,
+            image: "img/drink01.webp"
+        },
+        {
+            name: "사이다",
+            description: "깔끔하고 시원하게",
+            price: 2000,
+            image: "img/drink02.webp"
+        },
+        {
+            name: "쿨피스",
+            description: "매운 떡볶이 필수템",
+            price: 2500,
+            image: "img/drink03.webp"
+        },
+        {
+            name: "제로콜라",
+            description: "가볍게 즐기는 탄산",
+            price: 2000,
+            image: "img/drink04.webp"
+        }
+    ]
 
-        };
-
-
+};
         // 카테고리 이름
         const categoryNames = {
             main: "메인메뉴",

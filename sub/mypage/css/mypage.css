@@ -1,0 +1,762 @@
+
+/* ==========================
+   기존 메인페이지 CSS 불러오기
+========================== */
+
+@import url("../../../css/style.css");
+
+
+/* ==========================
+   공통 설정
+========================== */
+
+[hidden] {
+    display: none !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.header .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header .logo img {
+    width: 120px;
+    height: auto;
+}
+
+.back-button,
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==========================
+   마이페이지 영역
+========================== */
+
+.mypage-section {
+    flex: 1;
+    padding: 30px 20px 60px;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+}
+
+
+/* ==========================
+   회원 프로필
+========================== */
+
+.profile-card {
+    padding: 25px 20px;
+    background-color: var(--red);
+    color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(239, 64, 43, 0.15);
+}
+
+.profile-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-icon {
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-text p {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.profile-text h2 {
+    font-size: 23px;
+    font-weight: 700;
+    margin: 5px 0;
+    overflow-wrap: anywhere;
+}
+
+.member-grade {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-setting {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==========================
+   회원 정보 요약
+========================== */
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    color: var(--white);
+}
+
+.stat-item:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.stat-item strong {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.stat-item span {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.stat-item:hover {
+    opacity: 0.8;
+}
+
+
+/* ==========================
+   공통 섹션
+========================== */
+
+.mypage-block {
+    margin-top: 35px;
+}
+
+.block-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.block-heading h2 {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.view-more {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--red);
+}
+
+
+/* ==========================
+   최근 주문 내역
+========================== */
+
+.recent-order-card {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: var(--white);
+    box-shadow: 0 3px 8px rgba(56, 36, 31, 0.05);
+}
+
+.order-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0e6dc;
+}
+
+.order-top span {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.order-top strong {
+    font-size: 12px;
+    color: var(--red);
+    white-space: nowrap;
+}
+
+.order-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.order-food-icon {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-color: #ffe3d0;
+    color: var(--red);
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.order-text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.order-text p {
+    font-size: 12px;
+    color: var(--gray);
+    margin: 6px 0;
+}
+
+.order-text strong {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* ==========================
+   버튼
+========================== */
+
+.outline-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px;
+    border: 1px solid var(--red);
+    border-radius: 9px;
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.outline-button:hover {
+    background-color: #fff0e8;
+}
+
+.primary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: var(--red);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.primary-button:hover {
+    background-color: #d83523;
+}
+
+
+/* ==========================
+   주문 내역이 없을 때
+========================== */
+
+.empty-order {
+    padding: 30px 20px;
+    background-color: var(--white);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.empty-order > span {
+    display: block;
+    font-size: 45px;
+    color: #dfc9b6;
+    margin-bottom: 12px;
+}
+
+.empty-order h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.empty-order p {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 10px;
+}
+
+.empty-order .outline-button {
+    margin-top: 20px;
+}
+
+
+/* ==========================
+   마이페이지 메뉴
+========================== */
+
+.mypage-menu {
+    padding: 0 17px;
+    border-radius: 15px;
+    background-color: var(--white);
+    box-shadow: 0 3px 8px rgba(56, 36, 31, 0.05);
+}
+
+.mypage-menu-item {
+    width: 100%;
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.mypage-menu-item:not(:last-child) {
+    border-bottom: 1px solid #f0e6dc;
+}
+
+.mypage-menu-item:hover {
+    color: var(--red);
+}
+
+.menu-symbol {
+    width: 25px;
+    flex-shrink: 0;
+    text-align: center;
+    color: var(--red);
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.menu-arrow {
+    margin-left: auto;
+    font-size: 25px;
+    color: #a28e83;
+}
+
+
+/* ==========================
+   비로그인 화면
+========================== */
+
+.guest-profile {
+    padding: 45px 25px;
+    background-color: var(--white);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.guest-icon {
+    font-size: 65px;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.guest-profile h2 {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.guest-profile p {
+    margin-top: 15px;
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.guest-profile .primary-button {
+    margin-top: 30px;
+}
+
+
+/* ==========================
+   팝업 공통
+========================== */
+
+.mypage-popup {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 120;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.mypage-popup.active {
+    display: flex;
+}
+
+.mypage-panel {
+    width: 100%;
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 25px 20px;
+    background-color: var(--cream);
+    border-radius: 20px;
+    animation: panelAppear 0.25s ease;
+}
+
+@keyframes panelAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.panel-heading h2 {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.panel-heading button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+}
+
+
+/* ==========================
+   회원 정보 및 주소 입력창
+========================== */
+
+.mypage-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.mypage-input label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.mypage-input input {
+    width: 100%;
+    height: 48px;
+    padding: 0 13px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background-color: var(--white);
+    color: var(--brown);
+    font-size: 14px;
+    outline: none;
+}
+
+.mypage-input input:focus {
+    border-color: var(--red);
+}
+
+.mypage-input input[readonly] {
+    background-color: #efdfce;
+    color: var(--gray);
+}
+
+
+/* ==========================
+   쿠폰함
+========================== */
+
+.coupon-ticket {
+    position: relative;
+    padding: 30px 20px;
+    border: 2px dashed var(--red);
+    border-radius: 15px;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.coupon-ticket p {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--red);
+}
+
+.coupon-ticket h3 {
+    margin: 15px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--red);
+}
+
+.coupon-ticket strong {
+    display: block;
+    font-size: 15px;
+}
+
+.coupon-ticket span {
+    display: block;
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 12px;
+}
+
+.coupon-guide {
+    font-size: 13px;
+    color: var(--gray);
+    text-align: center;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+
+/* ==========================
+   주문 상세 내역
+========================== */
+
+.detail-order-box {
+    padding: 20px 15px;
+    border-radius: 12px;
+    background-color: var(--white);
+}
+
+.detail-order-box > p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.detail-order-list {
+    margin: 20px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.detail-order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+}
+
+.detail-order-item:not(:last-child) {
+    border-bottom: 1px solid #f0e6dc;
+}
+
+.detail-order-item strong {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.detail-order-item p {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 5px;
+}
+
+.order-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.total-price {
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.total-price strong {
+    color: var(--red);
+}
+
+
+/* ==========================
+   고객센터
+========================== */
+
+.support-content {
+    padding: 25px 20px;
+    background-color: var(--white);
+    border-radius: 12px;
+}
+
+.support-content h3 {
+    font-size: 18px;
+}
+
+.support-content p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--gray);
+    margin-top: 15px;
+}
+
+
+/* ==========================
+   저장 완료 알림
+========================== */
+
+.mypage-toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    width: calc(100% - 40px);
+    max-width: 460px;
+    padding: 16px;
+    background-color: var(--brown);
+    color: var(--white);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 13px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 150;
+    transition: all 0.25s ease;
+}
+
+.mypage-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+
+/* ==========================
+   푸터
+========================== */
+
+.footer {
+    flex-shrink: 0;
+    padding: 35px 20px 50px;
+}
+
+
+/* ==========================
+   모바일 반응형
+========================== */
+
+@media (max-width: 380px) {
+
+    .page-title {
+        font-size: 26px;
+    }
+
+    .profile-card {
+        padding: 22px 15px;
+    }
+
+    .profile-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .profile-text h2 {
+        font-size: 20px;
+    }
+
+    .stat-item strong {
+        font-size: 20px;
+    }
+
+    .stat-item span {
+        font-size: 11px;
+    }
+
+    .block-heading h2 {
+        font-size: 19px;
+    }
+
+    .recent-order-card {
+        padding: 15px;
+    }
+
+    .order-text h3 {
+        font-size: 14px;
+    }
+
+    .mypage-menu-item {
+        font-size: 13px;
+    }
+
+    .mypage-panel {
+        padding: 20px 15px;
+    }
+
+}

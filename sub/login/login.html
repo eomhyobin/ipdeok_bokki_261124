@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>로그인 | 입덕볶이</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- 헤더 -->
+
+        <header class="header">
+
+            <a href="../../index.html" class="back-button"
+                aria-label="홈으로 이동">
+
+                <svg width="26" height="26" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+
+                    <path d="m15 18-6-6 6-6"/>
+
+                </svg>
+
+            </a>
+
+            <a href="../../index.html" class="logo">
+
+                <img src="../../img/logo.png" alt="입덕볶이 로고">
+
+            </a>
+
+            <button class="menu-button" id="menuOpen"
+                aria-label="메뉴 열기">
+
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+
+                </svg>
+
+            </button>
+
+        </header>
+
+
+        <!-- 햄버거 메뉴 -->
+
+        <div class="menu-layer" id="menuLayer">
+
+            <div class="menu-overlay" id="menuOverlay"></div>
+
+            <nav class="side-menu">
+
+                <div class="side-menu-header">
+
+                    <button id="menuClose" aria-label="메뉴 닫기">
+
+                        <svg width="28" height="28" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+                <ul class="side-menu-list">
+
+                    <li><a href="../lists/lists.html">리스트페이지</a></li>
+
+                    <li><a href="../about/about.html">소개</a></li>
+
+                    <li><a href="../community/community.html">커뮤니티</a></li>
+
+                                        <li><a href="../mypage/mypage.html">마이페이지</a></li>
+
+
+                    <li><a href="../login/login.html">로그인</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+
+        <!-- 로그인 영역 -->
+
+        <main class="login-section" id="loginSection">
+
+            <div class="login-heading">
+
+                <img src="../../img/logo.png" alt="입덕볶이">
+
+                <h1>다시 만나서 반가워요!</h1>
+
+                <p>오늘도 맛있게 입덕할 준비 되셨나요?</p>
+
+            </div>
+
+
+            <!-- 로그인 폼 -->
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label for="userId">아이디</label>
+
+                    <input type="text"
+                        id="userId"
+                        placeholder="아이디를 입력해 주세요."
+                        autocomplete="username"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label for="userPassword">비밀번호</label>
+
+                    <div class="password-box">
+
+                        <input type="password"
+                            id="userPassword"
+                            placeholder="비밀번호를 입력해 주세요."
+                            autocomplete="current-password"
+                            required>
+
+                        <button type="button"
+                            class="password-toggle"
+                            id="passwordToggle"
+                            aria-label="비밀번호 보기">
+
+                            <svg width="22" height="22"
+                                viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+
+                                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/>
+
+                                <circle cx="12" cy="12" r="3"/>
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 로그인 상태 유지 -->
+
+                <label class="remember-login">
+
+                    <input type="checkbox" id="rememberLogin">
+
+                    <span>로그인 상태 유지</span>
+
+                </label>
+
+
+                <!-- 오류 메시지 -->
+
+                <p class="error-message" id="errorMessage"
+                    role="alert"></p>
+
+
+                <!-- 로그인 버튼 -->
+
+                <button type="submit" class="login-button">
+
+                    로그인
+
+                </button>
+
+            </form>
+
+
+            <!-- 계정 관련 메뉴 -->
+
+            <div class="account-links">
+
+                <button data-feature="아이디 찾기">
+                    아이디 찾기
+                </button>
+
+                <span></span>
+
+                <button data-feature="비밀번호 찾기">
+                    비밀번호 찾기
+                </button>
+
+                <span></span>
+
+                <button data-feature="회원가입">
+                    회원가입
+                </button>
+
+            </div>
+
+
+            <!-- 간편 로그인 -->
+
+            <div class="social-divider">
+
+                <span></span>
+
+                <p>간편 로그인</p>
+
+                <span></span>
+
+            </div>
+
+            <div class="social-login">
+
+                <button class="social-button kakao"
+                    data-feature="카카오 로그인">
+
+                    <svg width="23" height="23"
+                        viewBox="0 0 24 24"
+                        fill="currentColor">
+
+                        <path d="M12 3C5.9 3 1 6.6 1 11c0 2.8 2 5.3 5 6.7L5 22l5-3.2c.7.1 1.3.2 2 .2 6.1 0 11-3.6 11-8S18.1 3 12 3Z"/>
+
+                    </svg>
+
+                    카카오로 시작하기
+
+                </button>
+
+                <button class="social-button naver"
+                    data-feature="네이버 로그인">
+
+                    <span class="naver-icon">N</span>
+
+                    네이버로 시작하기
+
+                </button>
+
+            </div>
+
+
+            <!-- 비회원 메뉴 이용 -->
+
+            <a href="../lists/lists.html" class="guest-button">
+
+                비회원으로 메뉴 둘러보기
+
+                <svg width="18" height="18"
+                    viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+
+                </svg>
+
+            </a>
+
+
+            <!-- 테스트 계정 안내 -->
+
+            <div class="test-account">
+
+                <strong>시제품 테스트 계정</strong>
+
+                <p>아이디 : ipdeok</p>
+
+                <p>비밀번호 : 1234</p>
+
+            </div>
+
+        </main>
+
+
+        <!-- 로그인 완료 화면 -->
+
+        <section class="welcome-section"
+            id="welcomeSection" hidden>
+
+            <div class="welcome-icon">
+
+                <svg width="45" height="45"
+                    viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <path d="m5 12 4 4L19 6"/>
+
+                </svg>
+
+            </div>
+
+            <p class="welcome-label">WELCOME TO IPDEOK BOKKI</p>
+
+            <h1>입덕을 환영합니다!</h1>
+
+            <p class="welcome-description">
+
+                입덕회원님, 반가워요.<br>
+
+                오늘도 맛있는 하루를 보내세요!
+
+            </p>
+
+            <a href="../mypage/mypage.html" class="login-button">
+                메인페이지로 이동
+            </a>
+
+            <a href="../lists/lists.html" class="guest-button">
+
+                메뉴 둘러보기 →
+
+            </a>
+
+            <button class="logout-button" id="logoutButton">
+
+                로그아웃
+
+            </button>
+
+        </section>
+
+
+        <!-- 안내 팝업 -->
+
+        <div class="popup-layer" id="infoPopup">
+
+            <div class="popup-panel"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="popupTitle">
+
+                <div class="popup-icon">♥</div>
+
+                <h2 id="popupTitle">서비스 안내</h2>
+
+                <p id="popupMessage"></p>
+
+                <button class="login-button" id="popupClose">
+
+                    확인
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 푸터 -->
+
+        <footer class="footer">
+
+            <img src="../../img/logo.png" alt="입덕볶이 로고">
+
+            <p>한 입 먹으면, 입덕 완료!</p>
+
+            <p class="copyright">
+
+                © IPDEOK BOKKI. All rights reserved.
+
+            </p>
+
+            <small>
+
+                본 사이트는 시제품 제작을 위한 테스트 사이트입니다.
+
+            </small>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        /* ==========================
+           햄버거 메뉴
+        ========================== */
+
+        const menuOpen = document.getElementById('menuOpen');
+        const menuClose = document.getElementById('menuClose');
+        const menuLayer = document.getElementById('menuLayer');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuOpen.addEventListener('click', function () {
+
+            menuLayer.classList.add('active');
+
+            document.body.style.overflow = 'hidden';
+
+        });
+
+        function closeMenu() {
+
+            menuLayer.classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+        menuClose.addEventListener('click', closeMenu);
+
+        menuOverlay.addEventListener('click', closeMenu);
+
+
+        /* ==========================
+           비밀번호 표시 및 숨기기
+        ========================== */
+
+        const userPassword =
+            document.getElementById('userPassword');
+
+        const passwordToggle =
+            document.getElementById('passwordToggle');
+
+        passwordToggle.addEventListener('click', function () {
+
+            const isHidden = userPassword.type === 'password';
+
+            userPassword.type = isHidden ? 'text' : 'password';
+
+            passwordToggle.setAttribute(
+                'aria-label',
+                isHidden ? '비밀번호 숨기기' : '비밀번호 보기'
+            );
+
+            if (isHidden) {
+
+                passwordToggle.innerHTML = `
+
+                    <svg width="22" height="22"
+                        viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+
+                        <path d="m3 3 18 18"/>
+
+                        <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/>
+
+                        <path d="M9 5.5A10.5 10.5 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-2.2 3.1"/>
+
+                        <path d="M6 6C3.5 8.1 2 12 2 12s3.6 7 10 7c1.7 0 3.2-.5 4.5-1.2"/>
+
+                    </svg>
+
+                `;
+
+            } else {
+
+                passwordToggle.innerHTML = `
+
+                    <svg width="22" height="22"
+                        viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+
+                        <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/>
+
+                        <circle cx="12" cy="12" r="3"/>
+
+                    </svg>
+
+                `;
+
+            }
+
+        });
+
+
+        /* ==========================
+           로그인 기능
+        ========================== */
+
+        const loginForm =
+            document.getElementById('loginForm');
+
+        const loginSection =
+            document.getElementById('loginSection');
+
+        const welcomeSection =
+            document.getElementById('welcomeSection');
+
+        const errorMessage =
+            document.getElementById('errorMessage');
+
+        const loginKey = 'ipdeokLogin';
+
+
+        /* 로그인 화면 상태 확인 */
+
+        function checkLogin() {
+
+            const isLoggedIn =
+                localStorage.getItem(loginKey) === 'true' ||
+                sessionStorage.getItem(loginKey) === 'true';
+
+            loginSection.hidden = isLoggedIn;
+
+            welcomeSection.hidden = !isLoggedIn;
+
+        }
+
+
+        /* 로그인 버튼 클릭 */
+
+        loginForm.addEventListener('submit', function (event) {
+
+            event.preventDefault();
+
+            const userId =
+                document.getElementById('userId').value.trim();
+
+            const password =
+                userPassword.value;
+
+            const remember =
+                document.getElementById('rememberLogin').checked;
+
+
+            /* 테스트 계정 확인 */
+
+            if (userId === 'ipdeok' && password === '1234') {
+
+                localStorage.removeItem(loginKey);
+
+                sessionStorage.removeItem(loginKey);
+
+
+                /* 로그인 상태 유지 */
+
+                if (remember) {
+
+                    localStorage.setItem(loginKey, 'true');
+
+                } else {
+
+                    sessionStorage.setItem(loginKey, 'true');
+
+                }
+
+                errorMessage.textContent = '';
+
+                loginForm.reset();
+
+                userPassword.type = 'password';
+
+                passwordToggle.setAttribute(
+                    'aria-label',
+                    '비밀번호 보기'
+                );
+
+                passwordToggle.innerHTML = `
+                    <svg width="22" height="22"
+                        viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                `;
+
+                checkLogin();
+
+                window.scrollTo(0, 0);
+
+            } else {
+
+                errorMessage.textContent =
+                    '아이디 또는 비밀번호를 다시 확인해 주세요.';
+
+            }
+
+        });
+
+
+        /* 입력 시 오류 메시지 제거 */
+
+        document.getElementById('userId')
+            .addEventListener('input', function () {
+
+                errorMessage.textContent = '';
+
+            });
+
+        userPassword.addEventListener('input', function () {
+
+            errorMessage.textContent = '';
+
+        });
+
+
+        /* ==========================
+           로그아웃
+        ========================== */
+
+        document.getElementById('logoutButton')
+            .addEventListener('click', function () {
+
+                localStorage.removeItem(loginKey);
+
+                sessionStorage.removeItem(loginKey);
+
+                checkLogin();
+
+                window.scrollTo(0, 0);
+
+            });
+
+
+        /* ==========================
+           서비스 안내 팝업
+        ========================== */
+
+        const infoPopup =
+            document.getElementById('infoPopup');
+
+        const popupTitle =
+            document.getElementById('popupTitle');
+
+        const popupMessage =
+            document.getElementById('popupMessage');
+
+        document.querySelectorAll('[data-feature]')
+            .forEach(function (button) {
+
+                button.addEventListener('click', function () {
+
+                    popupTitle.textContent =
+                        button.dataset.feature;
+
+                    popupMessage.textContent =
+                        '현재 시제품에서는 제공되지 않는 기능입니다. 실제 서비스에서 이용하실 수 있습니다.';
+
+                    infoPopup.classList.add('active');
+
+                    document.body.style.overflow = 'hidden';
+
+                });
+
+            });
+
+        function closePopup() {
+
+            infoPopup.classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+        document.getElementById('popupClose')
+            .addEventListener('click', closePopup);
+
+        infoPopup.addEventListener('click', function (event) {
+
+            if (event.target === infoPopup) {
+
+                closePopup();
+
+            }
+
+        });
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'Escape') {
+
+                closeMenu();
+
+                closePopup();
+
+            }
+
+        });
+
+
+        /* 최초 실행 */
+
+        checkLogin();
+
+    </script>
+
+</body>
+
+</html>

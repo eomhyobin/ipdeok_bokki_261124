@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -19,9 +18,7 @@
 
     <div class="container">
 
-        <!-- ==========================
-             헤더
-        =========================== -->
+        <!-- 헤더 -->
 
         <header class="header">
 
@@ -42,12 +39,11 @@
                 </svg>
 
             </button>
+
         </header>
 
 
-        <!-- ==========================
-             햄버거 슬라이드 메뉴
-        =========================== -->
+        <!-- 햄버거 슬라이드 메뉴 -->
 
         <div class="menu-layer" id="menuLayer">
 
@@ -75,11 +71,9 @@
                 <ul class="side-menu-list">
 
                     <li><a href="sub/lists/lists.html">떡볶이 메뉴</a></li>
-
                     <li><a href="sub/about/about.html">소개</a></li>
-
                     <li><a href="sub/community/community.html">커뮤니티</a></li>
-
+                    <li><a href="sub/mypage/mypage.html">마이페이지</a></li>
                     <li><a href="sub/login/login.html">로그인</a></li>
 
                 </ul>
@@ -89,9 +83,7 @@
         </div>
 
 
-        <!-- ==========================
-             배달 주소
-        =========================== -->
+        <!-- 배달 주소 -->
 
         <button class="address-bar" id="addressOpen">
 
@@ -187,9 +179,7 @@
         </div>
 
 
-        <!-- ==========================
-             메인 비주얼
-        =========================== -->
+        <!-- 메인 비주얼 -->
 
         <section class="hero">
 
@@ -213,9 +203,7 @@
         </section>
 
 
-        <!-- ==========================
-             SECTION 1. 주문 버튼
-        =========================== -->
+        <!-- SECTION 1. 주문 버튼 -->
 
         <section class="section01">
 
@@ -295,32 +283,25 @@
         </section>
 
 
-        <!-- ==========================
-             SECTION 2. 추천 메뉴
-        =========================== -->
+        <!-- SECTION 2. 추천 메뉴 -->
 
         <section class="section02">
 
             <div class="section-heading">
-
                 <h2>추천 메뉴</h2>
-
             </div>
 
             <div class="recommend-tabs">
 
-                <button class="recommend-tab active"
-                    data-best="1">
+                <button class="recommend-tab active" data-best="1">
                     # 인기메뉴
                 </button>
 
-                <button class="recommend-tab"
-                    data-best="2">
+                <button class="recommend-tab" data-best="2">
                     # 매콤한
                 </button>
 
-                <button class="recommend-tab"
-                    data-best="0">
+                <button class="recommend-tab" data-best="0">
                     # 꾸덕한
                 </button>
 
@@ -358,9 +339,7 @@
         </section>
 
 
-        <!-- ==========================
-             SECTION 3. 메뉴
-        =========================== -->
+        <!-- SECTION 3. 메뉴 -->
 
         <section class="section03">
 
@@ -380,28 +359,23 @@
 
             <div class="category-list">
 
-                <button class="category-button active"
-                    data-category="main">
+                <button class="category-button active" data-category="main">
                     메인메뉴
                 </button>
 
-                <button class="category-button"
-                    data-category="set">
+                <button class="category-button" data-category="set">
                     세트메뉴
                 </button>
 
-                <button class="category-button"
-                    data-category="single">
+                <button class="category-button" data-category="single">
                     1인메뉴
                 </button>
 
-                <button class="category-button"
-                    data-category="side">
+                <button class="category-button" data-category="side">
                     사이드
                 </button>
 
-                <button class="category-button"
-                    data-category="drink">
+                <button class="category-button" data-category="drink">
                     음료
                 </button>
 
@@ -419,16 +393,12 @@
         </section>
 
 
-        <!-- ==========================
-             SECTION 4. 이벤트
-        =========================== -->
+        <!-- SECTION 4. 이벤트 -->
 
         <section class="section04" id="eventSection">
 
             <div class="section-heading">
-
                 <h2>이벤트</h2>
-
             </div>
 
             <p class="event-description">
@@ -440,18 +410,15 @@
 
             <div class="event-tabs">
 
-                <button class="event-tab active"
-                    data-event="ongoing">
+                <button class="event-tab active" data-event="ongoing">
                     진행중
                 </button>
 
-                <button class="event-tab"
-                    data-event="ended">
+                <button class="event-tab" data-event="ended">
                     종료
                 </button>
 
-                <button class="event-tab"
-                    data-event="winner">
+                <button class="event-tab" data-event="winner">
                     당첨자
                 </button>
 
@@ -505,9 +472,7 @@
         </section>
 
 
-        <!-- ==========================
-             푸터
-        =========================== -->
+        <!-- 푸터 -->
 
         <footer class="footer">
 
@@ -526,9 +491,7 @@
         </footer>
 
 
-        <!-- ==========================
-             장바구니 고정 버튼
-        =========================== -->
+        <!-- 장바구니 고정 버튼 -->
 
         <a href="sub/lists/lists.html?cart=1"
             class="cart-button" aria-label="장바구니">
@@ -552,10 +515,6 @@
 
     </div>
 
-
-    <!-- ==========================
-         JavaScript
-    =========================== -->
 
     <script>
 
@@ -651,9 +610,7 @@
         addressPopup.addEventListener('click', function (event) {
 
             if (event.target === addressPopup) {
-
                 closeAddress();
-
             }
 
         });
@@ -728,13 +685,15 @@
         ];
 
 
-        let currentBest = 1;
-
-        const recommendTrack =
-            document.getElementById('recommendTrack');
+        // ==========================
+        // 추천 메뉴 무한 캐러셀
+        // ==========================
 
         const recommendSlider =
             document.getElementById('recommendSlider');
+
+        const recommendTrack =
+            document.getElementById('recommendTrack');
 
         const recommendTabs =
             document.querySelectorAll('.recommend-tab');
@@ -742,36 +701,40 @@
         const recommendDots =
             document.querySelectorAll('.recommend-dot');
 
+        let currentBest = 4;
 
-        function showBestMenus() {
+        let isSliding = false;
 
-            recommendTrack.innerHTML = '';
+        let isDragging = false;
 
-            const order = [
+        let startX = 0;
 
-                (currentBest + 2) % 3,
+        let dragDistance = 0;
 
-                currentBest,
+        let slideTimer;
 
-                (currentBest + 1) % 3
+        let activePointer = null;
 
-            ];
+        let suppressClick = false;
 
-            order.forEach(function (menuIndex, position) {
+        const reducedMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        );
 
-                const menu = bestMenus[menuIndex];
 
-                const card = document.createElement('article');
+        // 무한 반복을 위한 카드 복제
 
-                card.className = 'recommend-card';
+        const repeatedMenus = [
+            ...bestMenus,
+            ...bestMenus,
+            ...bestMenus
+        ];
 
-                if (position === 1) {
+        recommendTrack.innerHTML = repeatedMenus.map(
+            (menu, index) => `
 
-                    card.classList.add('active');
-
-                }
-
-                card.innerHTML = `
+                <article class="recommend-card"
+                    data-index="${index}">
 
                     <p class="best-rank">
                         BEST ${menu.rank}
@@ -782,40 +745,73 @@
                     </h3>
 
                     <p class="best-description">
-                        ${menu.description}
-                    </p>
+    ${menu.description}
+</p>
+
+<button type="button" class="best-more">
+    메뉴 보러가기 →
+</button>
 
                     <img class="best-image"
                         src="${menu.image}"
-                        alt="${menu.name}">
+                        alt="${menu.name}"
+                        draggable="false">
 
-                `;
+                </article>
 
-                card.addEventListener('click', function () {
+            `
+        ).join('');
 
-                    if (menuIndex === currentBest) {
+        const recommendCards =
+            recommendTrack.querySelectorAll('.recommend-card');
 
-                        window.location.href = menu.link;
 
-                    } else {
+        // 카드 위치 계산
 
-                        currentBest = menuIndex;
+        function getSlidePosition() {
 
-                        showBestMenus();
+            const cardWidth = recommendCards[0].offsetWidth;
 
-                    }
+            const sliderWidth = recommendSlider.clientWidth;
 
-                });
+            const gap = parseFloat(
+                getComputedStyle(recommendTrack).columnGap
+            ) || 0;
 
-                recommendTrack.appendChild(card);
+            return (sliderWidth - cardWidth) / 2
+                - currentBest * (cardWidth + gap);
+
+        }
+
+
+        // 현재 카드 표시
+
+        function updateBestSlide(animate = true) {
+
+            recommendTrack.style.transition =
+                animate && !reducedMotion.matches
+                    ? 'transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1)'
+                    : 'none';
+
+            recommendTrack.style.transform =
+                `translateX(${getSlidePosition()}px)`;
+
+            recommendCards.forEach(function (card, index) {
+
+                card.classList.toggle(
+                    'active',
+                    index === currentBest
+                );
 
             });
+
+            const realIndex = currentBest % bestMenus.length;
 
             recommendTabs.forEach(function (tab) {
 
                 tab.classList.toggle(
                     'active',
-                    Number(tab.dataset.best) === currentBest
+                    Number(tab.dataset.best) === realIndex
                 );
 
             });
@@ -824,7 +820,7 @@
 
                 dot.classList.toggle(
                     'active',
-                    Number(dot.dataset.index) === currentBest
+                    Number(dot.dataset.index) === realIndex
                 );
 
             });
@@ -832,67 +828,221 @@
         }
 
 
-        // 추천 메뉴 해시태그 선택
+        // 슬라이드 이동
+
+        function moveBestSlide(direction) {
+
+            if (isSliding) return;
+
+            isSliding = true;
+
+            currentBest += direction;
+
+            updateBestSlide();
+
+            clearTimeout(slideTimer);
+
+            slideTimer = setTimeout(function () {
+
+    if (currentBest < 3 || currentBest > 5) {
+
+        recommendTrack.classList.add('resetting');
+
+        if (currentBest < 3) {
+            currentBest += 3;
+        }
+
+        if (currentBest > 5) {
+            currentBest -= 3;
+        }
+
+        updateBestSlide(false);
+
+        void recommendTrack.offsetWidth;
+
+        recommendTrack.classList.remove('resetting');
+
+    }
+
+    isSliding = false;
+
+}, reducedMotion.matches ? 0 : 450);
+
+        }
+
+
+        // 추천 메뉴 카드 클릭
+
+        recommendCards.forEach(function (card, index) {
+
+            card.addEventListener('click', function () {
+
+                if (isSliding || suppressClick) return;
+
+                if (index === currentBest) {
+
+                    const menu = bestMenus[index % 3];
+
+                    window.location.href = menu.link;
+
+                } else {
+
+                    moveBestSlide(
+                        index > currentBest ? 1 : -1
+                    );
+
+                }
+
+            });
+
+        });
+
+
+        // 해시태그 및 인디케이터 선택
+
+        function selectBestMenu(index) {
+
+            if (isSliding || isDragging) return;
+
+            const realIndex = currentBest % 3;
+
+            if (index === realIndex) return;
+
+            const direction =
+                (index - realIndex + 3) % 3 === 1 ? 1 : -1;
+
+            moveBestSlide(direction);
+
+        }
 
         recommendTabs.forEach(function (tab) {
 
             tab.addEventListener('click', function () {
 
-                currentBest = Number(tab.dataset.best);
-
-                showBestMenus();
+                selectBestMenu(Number(tab.dataset.best));
 
             });
 
         });
-
-
-        // 추천 메뉴 페이지 표시 클릭
 
         recommendDots.forEach(function (dot) {
 
             dot.addEventListener('click', function () {
 
-                currentBest = Number(dot.dataset.index);
-
-                showBestMenus();
+                selectBestMenu(Number(dot.dataset.index));
 
             });
 
         });
 
 
-        // 추천 메뉴 터치 슬라이드
+        // 마우스 드래그 및 모바일 스와이프
 
-        let touchStartX = 0;
+        recommendSlider.addEventListener('pointerdown', function (event) {
 
-        recommendSlider.addEventListener('touchstart', function (event) {
+            if (isSliding || isDragging || event.button !== 0) return;
 
-            touchStartX = event.changedTouches[0].clientX;
+            isDragging = true;
 
-        }, { passive: true });
+            activePointer = event.pointerId;
 
-        recommendSlider.addEventListener('touchend', function (event) {
+            startX = event.clientX;
 
-            const touchEndX = event.changedTouches[0].clientX;
+            dragDistance = 0;
 
-            const distance = touchStartX - touchEndX;
+            suppressClick = false;
 
-            if (distance > 50) {
+            recommendTrack.style.transition = 'none';
 
-                currentBest = (currentBest + 1) % 3;
+        });
 
-                showBestMenus();
+        window.addEventListener('pointermove', function (event) {
 
-            } else if (distance < -50) {
+            if (!isDragging || event.pointerId !== activePointer) return;
 
-                currentBest = (currentBest + 2) % 3;
+            dragDistance = event.clientX - startX;
 
-                showBestMenus();
+            const maxDistance =
+                recommendCards[0].offsetWidth;
+
+            dragDistance = Math.max(
+                -maxDistance,
+                Math.min(maxDistance, dragDistance)
+            );
+
+            if (Math.abs(dragDistance) > 10) {
+
+                suppressClick = true;
 
             }
 
-        }, { passive: true });
+            recommendTrack.style.transform =
+                `translateX(${getSlidePosition() + dragDistance}px)`;
+
+        });
+
+        window.addEventListener('pointerup', function (event) {
+
+            if (!isDragging || event.pointerId !== activePointer) return;
+
+            isDragging = false;
+
+            activePointer = null;
+
+            if (dragDistance < -50) {
+
+                moveBestSlide(1);
+
+            } else if (dragDistance > 50) {
+
+                moveBestSlide(-1);
+
+            } else {
+
+                updateBestSlide();
+
+            }
+
+            setTimeout(function () {
+
+                suppressClick = false;
+
+                dragDistance = 0;
+
+            }, 50);
+
+        });
+
+        window.addEventListener('pointercancel', function (event) {
+
+            if (!isDragging || event.pointerId !== activePointer) return;
+
+            isDragging = false;
+
+            activePointer = null;
+
+            dragDistance = 0;
+
+            suppressClick = false;
+
+            updateBestSlide();
+
+        });
+
+        recommendSlider.addEventListener('dragstart', function (event) {
+
+            event.preventDefault();
+
+        });
+
+
+        // 화면 크기 변경 대응
+
+        window.addEventListener('resize', function () {
+
+            updateBestSlide(false);
+
+        });
 
 
         // ==========================
@@ -1118,12 +1268,12 @@
         const categoryButtons =
             document.querySelectorAll('.category-button');
 
-
         function showMenus() {
 
             mainMenuList.innerHTML = '';
 
             menus[currentCategory].slice(0, 4).forEach(function (menu) {
+
                 const card = document.createElement('article');
 
                 card.className = 'menu-card';
@@ -1197,7 +1347,6 @@
             document.getElementById('eventList');
 
         const ongoingEvent = eventList.innerHTML;
-
 
         function showEvents(type) {
 
@@ -1289,7 +1438,6 @@
 
         const cartCount = document.getElementById('cartCount');
 
-
         function updateCart() {
 
             const cart = JSON.parse(
@@ -1333,12 +1481,11 @@
 
         showAddress();
 
-        showBestMenus();
+        updateBestSlide(false);
 
         showMenus();
 
         updateCart();
-
 
         window.addEventListener('pageshow', function () {
 
@@ -1346,8 +1493,59 @@
 
             updateCart();
 
+            updateBestSlide(false);
+
         });
 
+
+        // ==========================
+        // 11. 스크롤 등장 효과
+        // ==========================
+
+        const scrollElements = document.querySelectorAll(
+            '.section01, .section02, .section03, .section04'
+        );
+
+        const scrollObserver = new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add('show');
+
+                        scrollObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.1
+            }
+        );
+
+        scrollElements.forEach(function (element) {
+
+            element.classList.add('scroll-reveal');
+
+            scrollObserver.observe(element);
+
+        });
+            // ==========================
+// 추천 메뉴 자동 슬라이드
+
+setInterval(function () {
+
+    if (!isDragging && !isSliding) {
+
+        moveBestSlide(1);
+
+    }
+
+}, 2000);
     </script>
 
 </body>

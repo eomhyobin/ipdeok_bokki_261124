@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>마이페이지 | 입덕볶이</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/mypage.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- 헤더 -->
+
+        <header class="header">
+
+            <a href="../../index.html" class="back-button" aria-label="홈으로 이동">
+
+                <svg width="26" height="26" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+
+            </a>
+
+            <a href="../../index.html" class="logo">
+                <img src="../../img/logo.png" alt="입덕볶이 로고">
+            </a>
+
+            <button class="menu-button" id="menuOpen" aria-label="메뉴 열기">
+
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                </svg>
+
+            </button>
+
+        </header>
+
+
+        <!-- 햄버거 메뉴 -->
+
+        <div class="menu-layer" id="menuLayer">
+
+            <div class="menu-overlay" id="menuOverlay"></div>
+
+            <nav class="side-menu">
+
+                <div class="side-menu-header">
+
+                    <button id="menuClose" aria-label="메뉴 닫기">
+
+                        <svg width="28" height="28" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+
+                    </button>
+
+                </div>
+
+                <ul class="side-menu-list">
+
+                    <li><a href="../lists/lists.html">리스트페이지</a></li>
+
+                    <li><a href="../about/about.html">소개</a></li>
+
+                    <li><a href="../community/community.html">커뮤니티</a></li>
+
+                                        <li><a href="../mypage/mypage.html">마이페이지</a></li>
+
+
+                    <li><a href="../login/login.html">로그인</a></li>
+
+            
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+
+        <main class="mypage-section">
+
+            <h1 class="page-title">마이페이지</h1>
+
+
+            <!-- 비로그인 상태 -->
+
+            <section class="guest-profile" id="guestProfile" hidden>
+
+                <div class="guest-icon">♡</div>
+
+                <h2>아직 입덕 전이신가요?</h2>
+
+                <p>로그인하고 나만의 입덕 생활을 시작해 보세요!</p>
+
+                <a href="../login/login.html" class="primary-button">
+                    로그인하기
+                </a>
+
+            </section>
+
+
+            <!-- 로그인 상태 -->
+
+            <div id="memberArea" hidden>
+
+
+                <!-- 회원 프로필 -->
+
+                <section class="profile-card">
+
+                    <div class="profile-top">
+
+                        <div class="profile-icon">
+
+                            <svg width="34" height="34" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round">
+                                <circle cx="12" cy="8" r="4"/>
+                                <path d="M4 21v-2a8 8 0 0 1 16 0v2"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="profile-text">
+
+                            <p>오늘도 입덕 완료!</p>
+
+                            <h2 id="memberName">입덕회원님 ♥</h2>
+
+                            <span class="member-grade">일반회원</span>
+
+                        </div>
+
+                        <button class="profile-setting"
+                            data-popup="profilePopup"
+                            aria-label="회원 정보 설정">
+
+                            <svg width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+
+                                <circle cx="12" cy="12" r="3"/>
+
+                                <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/>
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- 회원 정보 요약 -->
+
+                    <div class="profile-stats">
+
+                        <button class="stat-item" id="orderShortcut">
+
+                            <svg width="25" height="25" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linejoin="round">
+
+                                <path d="M5 3l3 2 4-2 4 2 3-2v18l-3-2-4 2-4-2-3 2Z"/>
+                                <path d="M9 9h6M9 13h6"/>
+
+                            </svg>
+
+                            <strong id="orderCount">0건</strong>
+
+                            <span>주문 내역</span>
+
+                        </button>
+
+                        <button class="stat-item" data-popup="couponPopup">
+
+                            <svg width="25" height="25" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linejoin="round">
+
+                                <path d="M3 5h18v4a3 3 0 0 0 0 6v4H3v-4a3 3 0 0 0 0-6Z"/>
+                                <path d="M13 5v3M13 10v4M13 16v3"/>
+
+                            </svg>
+
+                            <strong id="couponCount">1장</strong>
+
+                            <span>보유 쿠폰</span>
+
+                        </button>
+
+                        <a href="../lists/lists.html?cart=1" class="stat-item">
+
+                            <svg width="25" height="25" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linejoin="round">
+
+                                <path d="M4 7h16l1 14H3L4 7Z"/>
+                                <path d="M9 9V5a3 3 0 0 1 6 0v4"/>
+
+                            </svg>
+
+                            <strong id="cartQuantity">0개</strong>
+
+                            <span>장바구니</span>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- 최근 주문 내역 -->
+
+                <section class="mypage-block" id="recentOrderSection">
+
+                    <div class="block-heading">
+
+                        <h2>최근 주문 내역</h2>
+
+                        <button class="view-more" id="viewOrder">
+                            상세 보기 ›
+                        </button>
+
+                    </div>
+
+                    <div id="recentOrder"></div>
+
+                </section>
+
+
+                <!-- 나의 정보 -->
+
+                <section class="mypage-block">
+
+                    <div class="block-heading">
+                        <h2>나의 정보</h2>
+                    </div>
+
+                    <div class="mypage-menu">
+
+                        <button class="mypage-menu-item"
+                            data-popup="profilePopup">
+
+                            <span class="menu-symbol">♙</span>
+
+                            <span>회원 정보</span>
+
+                            <span class="menu-arrow">›</span>
+
+                        </button>
+
+                        <button class="mypage-menu-item"
+                            data-popup="addressPopup">
+
+                            <span class="menu-symbol">⌖</span>
+
+                            <span>배달 주소 관리</span>
+
+                            <span class="menu-arrow">›</span>
+
+                        </button>
+
+                        <button class="mypage-menu-item"
+                            data-popup="couponPopup">
+
+                            <span class="menu-symbol">◇</span>
+
+                            <span>쿠폰함</span>
+
+                            <span class="menu-arrow">›</span>
+
+                        </button>
+
+                        <button class="mypage-menu-item"
+                            id="orderMenu">
+
+                            <span class="menu-symbol">▤</span>
+
+                            <span>주문 내역</span>
+
+                            <span class="menu-arrow">›</span>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- 고객 지원 -->
+
+                <section class="mypage-block">
+
+                    <div class="block-heading">
+                        <h2>고객 지원</h2>
+                    </div>
+
+                    <div class="mypage-menu">
+
+                        <a href="../community/community.html"
+                            class="mypage-menu-item">
+
+                            <span class="menu-symbol">◎</span>
+
+                            <span>공지사항 및 커뮤니티</span>
+
+                            <span class="menu-arrow">›</span>
+
+                        </a>
+
+                        <button class="mypage-menu-item"
+                            data-popup="supportPopup">
+
+                            <span class="menu-symbol">?</span>
+
+                            <span>고객센터</span>
+
+                            <span class="menu-arrow">›</span>
+
+                        </button>
+
+                        <button class="mypage-menu-item"
+                            id="logoutButton">
+
+                            <span class="menu-symbol">↪</span>
+
+                            <span>로그아웃</span>
+
+                            <span class="menu-arrow">›</span>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+
+        <!-- 회원 정보 팝업 -->
+
+        <div class="mypage-popup" id="profilePopup">
+
+            <div class="mypage-panel">
+
+                <div class="panel-heading">
+
+                    <h2>회원 정보</h2>
+
+                    <button data-close="profilePopup">✕</button>
+
+                </div>
+
+                <form id="profileForm">
+
+                    <div class="mypage-input">
+
+                        <label for="profileId">아이디</label>
+
+                        <input type="text" id="profileId"
+                            value="ipdeok" readonly>
+
+                    </div>
+
+                    <div class="mypage-input">
+
+                        <label for="nickname">닉네임</label>
+
+                        <input type="text" id="nickname"
+                            maxlength="15" required>
+
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        저장하기
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- 배달 주소 관리 팝업 -->
+
+        <div class="mypage-popup" id="addressPopup">
+
+            <div class="mypage-panel">
+
+                <div class="panel-heading">
+
+                    <h2>배달 주소 관리</h2>
+
+                    <button data-close="addressPopup">✕</button>
+
+                </div>
+
+                <form id="deliveryForm">
+
+                    <div class="mypage-input">
+
+                        <label for="deliveryName">받는 사람</label>
+
+                        <input type="text" id="deliveryName" required>
+
+                    </div>
+
+                    <div class="mypage-input">
+
+                        <label for="deliveryAddress">배달 주소</label>
+
+                        <input type="text" id="deliveryAddress" required>
+
+                    </div>
+
+                    <div class="mypage-input">
+
+                        <label for="deliveryDetail">상세 주소</label>
+
+                        <input type="text" id="deliveryDetail">
+
+                    </div>
+
+                    <div class="mypage-input">
+
+                        <label for="deliveryPhone">연락처</label>
+
+                        <input type="tel" id="deliveryPhone" required>
+
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        배달 정보 저장하기
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- 쿠폰함 팝업 -->
+
+        <div class="mypage-popup" id="couponPopup">
+
+            <div class="mypage-panel">
+
+                <div class="panel-heading">
+
+                    <h2>쿠폰함</h2>
+
+                    <button data-close="couponPopup">✕</button>
+
+                </div>
+
+                <div id="couponContent"></div>
+
+                <a href="../lists/lists.html" class="primary-button">
+                    메뉴 주문하기
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 주문 상세 팝업 -->
+
+        <div class="mypage-popup" id="orderPopup">
+
+            <div class="mypage-panel">
+
+                <div class="panel-heading">
+
+                    <h2>주문 내역</h2>
+
+                    <button data-close="orderPopup">✕</button>
+
+                </div>
+
+                <div id="orderDetail"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 고객센터 팝업 -->
+
+        <div class="mypage-popup" id="supportPopup">
+
+            <div class="mypage-panel">
+
+                <div class="panel-heading">
+
+                    <h2>고객센터</h2>
+
+                    <button data-close="supportPopup">✕</button>
+
+                </div>
+
+                <div class="support-content">
+
+                    <h3>무엇을 도와드릴까요?</h3>
+
+                    <p>
+                        주문 및 결제, 배달 관련 문의를 위한 공간입니다.
+                    </p>
+
+                    <p>
+                        현재 시제품으로 실제 상담은 제공되지 않습니다.
+                    </p>
+
+                </div>
+
+                <button class="primary-button" data-close="supportPopup">
+                    확인
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 저장 완료 알림 -->
+
+        <div class="mypage-toast" id="toast" role="status"></div>
+
+
+        <!-- 푸터 -->
+
+        <footer class="footer">
+
+            <img src="../../img/logo.png" alt="입덕볶이 로고">
+
+            <p>한 입 먹으면, 입덕 완료!</p>
+
+            <p class="copyright">
+                © IPDEOK BOKKI. All rights reserved.
+            </p>
+
+            <small>
+                본 사이트는 시제품 제작을 위한 테스트 사이트입니다.
+            </small>
+
+        </footer>
+
+    </div>
+
+
+    <script>
+
+        /* ==========================
+           햄버거 메뉴
+        ========================== */
+
+        const menuLayer = document.getElementById('menuLayer');
+
+        document.getElementById('menuOpen')
+            .addEventListener('click', function () {
+
+                menuLayer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+            });
+
+        function closeMenu() {
+
+            menuLayer.classList.remove('active');
+            document.body.style.overflow = '';
+
+        }
+
+        document.getElementById('menuClose')
+            .addEventListener('click', closeMenu);
+
+        document.getElementById('menuOverlay')
+            .addEventListener('click', closeMenu);
+
+
+        /* ==========================
+           저장 데이터 불러오기
+        ========================== */
+
+        function readStorage(key, fallback) {
+
+            try {
+
+                const value = localStorage.getItem(key);
+
+                return value ? JSON.parse(value) : fallback;
+
+            } catch (error) {
+
+                return fallback;
+
+            }
+
+        }
+
+        function escapeHTML(value) {
+
+            return String(value ?? '').replace(/[&<>"']/g, function (char) {
+
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[char];
+
+            });
+
+        }
+
+        function formatPrice(value) {
+
+            return Number(value || 0).toLocaleString('ko-KR') + '원';
+
+        }
+
+        const isLoggedIn =
+            localStorage.getItem('ipdeokLogin') === 'true' ||
+            sessionStorage.getItem('ipdeokLogin') === 'true';
+
+        const lastOrder = readStorage('ipdeokLastOrder', null);
+
+        const cart = readStorage('ipdeokOrderCart', []);
+
+        let delivery = readStorage('ipdeokDelivery', {});
+
+        let profile = readStorage('ipdeokProfile', {
+            nickname: '입덕회원'
+        });
+
+
+        /* ==========================
+           로그인 상태 확인
+        ========================== */
+
+        document.getElementById('guestProfile').hidden = isLoggedIn;
+
+        document.getElementById('memberArea').hidden = !isLoggedIn;
+
+
+        /* ==========================
+           회원 정보 표시
+        ========================== */
+
+        function showProfile() {
+
+            document.getElementById('memberName').textContent =
+                profile.nickname + '님 ♥';
+
+            document.getElementById('nickname').value =
+                profile.nickname;
+
+        }
+
+        showProfile();
+
+
+        /* ==========================
+           주문 및 장바구니 개수
+        ========================== */
+
+        document.getElementById('orderCount').textContent =
+            lastOrder ? '1건' : '0건';
+
+        const cartQuantity = Array.isArray(cart)
+            ? cart.reduce(function (sum, item) {
+
+                return sum + Number(item.qty || 1);
+
+            }, 0)
+            : 0;
+
+        document.getElementById('cartQuantity').textContent =
+            cartQuantity + '개';
+
+
+        /* ==========================
+           최근 주문 표시
+        ========================== */
+
+        const recentOrder = document.getElementById('recentOrder');
+
+        const orderMenus = lastOrder && Array.isArray(lastOrder.menus)
+            ? lastOrder.menus
+            : [];
+
+        function showRecentOrder() {
+
+            if (!lastOrder || orderMenus.length === 0) {
+
+                recentOrder.innerHTML = `
+
+                    <div class="empty-order">
+
+                        <span>♡</span>
+
+                        <h3>아직 주문 내역이 없어요.</h3>
+
+                        <p>맛있는 입덕볶이를 만나보세요!</p>
+
+                        <a href="../lists/lists.html" class="outline-button">
+                            메뉴 둘러보기
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+            const firstMenu = orderMenus[0];
+
+            const extraCount = orderMenus.length - 1;
+
+            recentOrder.innerHTML = `
+
+                <article class="recent-order-card">
+
+                    <div class="order-top">
+
+                        <span>${escapeHTML(lastOrder.orderDate || '최근 주문')}</span>
+
+                        <strong>주문 완료</strong>
+
+                    </div>
+
+                    <div class="order-info">
+
+                        <div class="order-food-icon">♡</div>
+
+                        <div class="order-text">
+
+                            <h3>
+                                ${escapeHTML(firstMenu.name)}
+                                ${extraCount > 0 ? ' 외 ' + extraCount + '개' : ''}
+                            </h3>
+
+                            <p>
+                                ${escapeHTML(firstMenu.spicy || '')}
+                                · ${Number(lastOrder.totalQuantity || firstMenu.qty || 1)}개
+                            </p>
+
+                            <strong>
+                                ${formatPrice(lastOrder.finalTotal)}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <button class="outline-button" id="reorderButton">
+                        다시 주문하기
+                    </button>
+
+                </article>
+
+            `;
+
+            document.getElementById('reorderButton')
+                .addEventListener('click', reorder);
+
+        }
+
+        showRecentOrder();
+
+
+        /* ==========================
+           다시 주문하기
+        ========================== */
+
+        function reorder() {
+
+            if (!orderMenus.length) return;
+
+            const savedCart = readStorage('ipdeokOrderCart', []);
+
+            const currentCart = Array.isArray(savedCart)
+                ? savedCart
+                : [];
+
+            const newCart = currentCart.concat(orderMenus);
+
+            localStorage.setItem(
+                'ipdeokOrderCart',
+                JSON.stringify(newCart)
+            );
+
+            window.location.href = '../lists/lists.html?cart=1';
+
+        }
+
+
+        /* ==========================
+           팝업 열기 및 닫기
+        ========================== */
+
+        function openPopup(id) {
+
+            document.getElementById(id).classList.add('active');
+
+            document.body.style.overflow = 'hidden';
+
+        }
+
+        function closePopup(id) {
+
+            document.getElementById(id).classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+        document.querySelectorAll('[data-popup]')
+            .forEach(function (button) {
+
+                button.addEventListener('click', function () {
+
+                    if (!isLoggedIn) return;
+
+                    openPopup(button.dataset.popup);
+
+                });
+
+            });
+
+        document.querySelectorAll('[data-close]')
+            .forEach(function (button) {
+
+                button.addEventListener('click', function () {
+
+                    closePopup(button.dataset.close);
+
+                });
+
+            });
+
+        document.querySelectorAll('.mypage-popup')
+            .forEach(function (popup) {
+
+                popup.addEventListener('click', function (event) {
+
+                    if (event.target === popup) {
+
+                        closePopup(popup.id);
+
+                    }
+
+                });
+
+            });
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'Escape') {
+
+                closeMenu();
+
+                document.querySelectorAll('.mypage-popup.active')
+                    .forEach(function (popup) {
+
+                        closePopup(popup.id);
+
+                    });
+
+            }
+
+        });
+
+
+        /* ==========================
+           회원 정보 수정
+        ========================== */
+
+        document.getElementById('profileForm')
+            .addEventListener('submit', function (event) {
+
+                event.preventDefault();
+
+                const nickname =
+                    document.getElementById('nickname').value.trim();
+
+                if (!nickname) return;
+
+                profile.nickname = nickname;
+
+                localStorage.setItem(
+                    'ipdeokProfile',
+                    JSON.stringify(profile)
+                );
+
+                showProfile();
+
+                closePopup('profilePopup');
+
+                showToast('회원 정보가 수정되었어요!');
+
+            });
+
+
+        /* ==========================
+           배달 주소 불러오기
+        ========================== */
+
+        document.getElementById('deliveryName').value =
+            delivery.name || '';
+
+        document.getElementById('deliveryAddress').value =
+            delivery.address || '';
+
+        document.getElementById('deliveryDetail').value =
+            delivery.detail || '';
+
+        document.getElementById('deliveryPhone').value =
+            delivery.phone || '';
+
+
+        /* 배달 주소 수정 */
+
+        document.getElementById('deliveryForm')
+            .addEventListener('submit', function (event) {
+
+                event.preventDefault();
+
+                delivery = {
+
+                    name: document.getElementById('deliveryName').value.trim(),
+
+                    address: document.getElementById('deliveryAddress').value.trim(),
+
+                    detail: document.getElementById('deliveryDetail').value.trim(),
+
+                    phone: document.getElementById('deliveryPhone').value.trim()
+
+                };
+
+                if (!delivery.name || !delivery.address || !delivery.phone) {
+
+                    alert('필수 정보를 입력해 주세요.');
+
+                    return;
+
+                }
+
+                localStorage.setItem(
+                    'ipdeokDelivery',
+                    JSON.stringify(delivery)
+                );
+
+                closePopup('addressPopup');
+
+                showToast('배달 정보가 저장되었어요!');
+
+            });
+
+
+        /* ==========================
+           쿠폰함
+        ========================== */
+
+        const couponContent =
+            document.getElementById('couponContent');
+
+        couponContent.innerHTML = `
+
+            <div class="coupon-ticket">
+
+                <p>WELCOME COUPON</p>
+
+                <h3>2,000원 할인</h3>
+
+                <strong>첫 입덕 기념 할인 쿠폰</strong>
+
+                <span>시제품용 할인 혜택</span>
+
+            </div>
+
+            <p class="coupon-guide">
+                결제 페이지에서 할인 쿠폰을 선택할 수 있어요.
+            </p>
+
+        `;
+
+
+        /* ==========================
+           주문 상세 내역
+        ========================== */
+
+        function showOrderDetail() {
+
+            const orderDetail =
+                document.getElementById('orderDetail');
+
+            if (!lastOrder || orderMenus.length === 0) {
+
+                orderDetail.innerHTML = `
+
+                    <div class="empty-order">
+
+                        <span>♡</span>
+
+                        <h3>주문 내역이 없어요.</h3>
+
+                        <a href="../lists/lists.html" class="outline-button">
+                            메뉴 둘러보기
+                        </a>
+
+                    </div>
+
+                `;
+
+            } else {
+
+                const menuHTML = orderMenus.map(function (menu) {
+
+                    return `
+
+                        <div class="detail-order-item">
+
+                            <div>
+
+                                <strong>${escapeHTML(menu.name)}</strong>
+
+                                <p>
+                                    ${escapeHTML(menu.spicy || '')}
+                                    · ${Number(menu.qty || 1)}개
+                                </p>
+
+                            </div>
+
+                            <strong>
+                                ${formatPrice(menu.total ?? Number(menu.price || 0) * Number(menu.qty || 1))}
+                            </strong>
+
+                        </div>
+
+                    `;
+
+                }).join('');
+
+                orderDetail.innerHTML = `
+
+                    <div class="detail-order-box">
+
+                        <p>주문번호 : ${escapeHTML(lastOrder.orderNumber)}</p>
+
+                        <p>주문일 : ${escapeHTML(lastOrder.orderDate)}</p>
+
+                        <div class="detail-order-list">
+                            ${menuHTML}
+                        </div>
+
+                        <div class="order-price-row">
+
+                            <span>상품 금액</span>
+
+                            <strong>${formatPrice(lastOrder.productTotal)}</strong>
+
+                        </div>
+
+                        <div class="order-price-row">
+
+                            <span>배달비</span>
+
+                            <strong>${formatPrice(lastOrder.deliveryFee)}</strong>
+
+                        </div>
+
+                        <div class="order-price-row">
+
+                            <span>할인 금액</span>
+
+                            <strong>-${formatPrice(lastOrder.discount)}</strong>
+
+                        </div>
+
+                        <div class="order-price-row total-price">
+
+                            <span>총 결제 금액</span>
+
+                            <strong>${formatPrice(lastOrder.finalTotal)}</strong>
+
+                        </div>
+
+                    </div>
+
+                    <button class="primary-button" id="detailReorder">
+                        다시 주문하기
+                    </button>
+
+                `;
+
+                document.getElementById('detailReorder')
+                    .addEventListener('click', reorder);
+
+            }
+
+            openPopup('orderPopup');
+
+        }
+
+        document.getElementById('viewOrder')
+            .addEventListener('click', showOrderDetail);
+
+        document.getElementById('orderShortcut')
+            .addEventListener('click', showOrderDetail);
+
+        document.getElementById('orderMenu')
+            .addEventListener('click', showOrderDetail);
+
+
+        /* ==========================
+           로그아웃
+        ========================== */
+
+        document.getElementById('logoutButton')
+            .addEventListener('click', function () {
+
+                if (confirm('로그아웃 하시겠어요?')) {
+
+                    localStorage.removeItem('ipdeokLogin');
+
+                    sessionStorage.removeItem('ipdeokLogin');
+
+                    window.location.href = '../login/login.html';
+
+                }
+
+            });
+
+
+        /* ==========================
+           저장 완료 알림
+        ========================== */
+
+        let toastTimer;
+
+        function showToast(message) {
+
+            const toast = document.getElementById('toast');
+
+            toast.textContent = message;
+
+            toast.classList.add('show');
+
+            clearTimeout(toastTimer);
+
+            toastTimer = setTimeout(function () {
+
+                toast.classList.remove('show');
+
+            }, 1800);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
