@@ -1,0 +1,709 @@
+
+/* ==========================
+   공통 설정
+========================== */
+
+:root {
+    --red: #ef402b;
+    --cream: #fdf1e2;
+    --brown: #38241f;
+    --white: #ffffff;
+    --gray: #79665e;
+    --line: #dfd0c2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f5f5f5;
+    color: var(--brown);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: var(--cream);
+    overflow: hidden;
+}
+
+
+/* ==========================
+   헤더
+========================== */
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cream);
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+.back-button,
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==========================
+   햄버거 메뉴
+========================== */
+
+.menu-layer {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    z-index: 110;
+    visibility: hidden;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.menu-layer.active {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.menu-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-layer.active .menu-overlay {
+    opacity: 1;
+}
+
+.side-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 67%;
+    height: 100%;
+    background-color: var(--cream);
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.menu-layer.active .side-menu {
+    transform: translateX(0);
+}
+
+.side-menu-header {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.side-menu-list {
+    margin-top: 20px;
+}
+
+.side-menu-list li {
+    border-bottom: 1px solid var(--line);
+}
+
+.side-menu-list a {
+    display: block;
+    padding: 20px 0;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.side-menu-list a:hover {
+    color: var(--red);
+}
+
+
+/* ==========================
+   SECTION 01. 메인 비주얼
+========================== */
+
+.hero {
+    position: relative;
+    height: 500px;
+    padding: 40px 20px 0;
+    background-color: var(--red);
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+}
+
+.hero-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -2px;
+}
+
+.hero-description {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.hero-image {
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 420px;
+    height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.15));
+}
+
+
+/* ==========================
+   섹션 공통 스타일
+========================== */
+
+.section {
+    padding: 65px 20px;
+}
+
+.section-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--red);
+    margin-bottom: 14px;
+}
+
+.section h2 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -1px;
+}
+
+.section-description {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-top: 12px;
+}
+
+.body-text {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.9;
+    word-break: keep-all;
+    color: var(--gray);
+    margin-top: 18px;
+}
+
+
+/* ==========================
+   SECTION 02. 브랜드 스토리
+========================== */
+
+.story-image {
+    width: 100%;
+    height: 280px;
+    margin: 30px 0;
+    background-color: #f5c9aa;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.story-image img {
+    width: 85%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.story-quote {
+    margin-top: 30px;
+    padding: 20px;
+    border-left: 4px solid var(--red);
+    background-color: #ffe3d0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--red);
+}
+
+
+/* ==========================
+   SECTION 03. 브랜드 특징
+========================== */
+
+.brand-values {
+    background-color: #efdfce;
+}
+
+.value-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.value-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 18px;
+    border-radius: 15px;
+    background-color: var(--white);
+}
+
+.value-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffebe0;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-number {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 1px;
+}
+
+.value-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.value-card p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-top: 8px;
+    word-break: keep-all;
+}
+
+
+/* ==========================
+   SECTION 04. 아이덴티티
+========================== */
+
+.identity-logo {
+    width: 100%;
+    height: 210px;
+    background-color: var(--white);
+    border-radius: 15px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.identity-logo img {
+    width: 65%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.identity-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.color-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.color-chip {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.color-chip.red {
+    background-color: var(--red);
+}
+
+.color-chip.cream {
+    background-color: var(--cream);
+    border: 1px solid var(--line);
+}
+
+.color-chip.brown {
+    background-color: var(--brown);
+}
+
+.color-item strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.color-item span {
+    display: block;
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 5px;
+}
+
+
+/* ==========================
+   SECTION 05. 대표 메뉴
+========================== */
+
+.signature {
+    background-color: #ffe3d0;
+}
+
+.signature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.signature-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: var(--white);
+    transition: transform 0.2s ease;
+}
+
+.signature-card:hover {
+    transform: translateY(-3px);
+}
+
+.signature-image {
+    flex: 0 0 40%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f3ed;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.signature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.signature-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.signature-info span {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--red);
+}
+
+.signature-info h3 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 5px;
+    word-break: keep-all;
+}
+
+.signature-info p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--gray);
+    margin-top: 8px;
+}
+
+.signature-info strong {
+    display: block;
+    font-size: 17px;
+    color: var(--red);
+    margin-top: 10px;
+}
+
+
+/* ==========================
+   SECTION 06. 추천 조합
+========================== */
+
+.combination-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 25px;
+}
+
+.combination-image {
+    width: 100%;
+    height: 230px;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.combination-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.combination-info {
+    padding: 22px;
+}
+
+.combination-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background-color: #ffe3d0;
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.combination-info h3 {
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.combination-info p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-top: 10px;
+    word-break: keep-all;
+}
+
+
+/* ==========================
+   SECTION 07. 주문 배너
+========================== */
+
+.order-banner {
+    padding: 65px 20px;
+    background-color: var(--red);
+    color: var(--white);
+    text-align: center;
+}
+
+.order-banner > p {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.order-banner h2 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -2px;
+    margin-top: 20px;
+}
+
+.order-banner > span {
+    display: block;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.order-button {
+    width: 100%;
+    height: 58px;
+    margin-top: 30px;
+    border-radius: 12px;
+    background-color: var(--cream);
+    color: var(--red);
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.order-button:hover {
+    background-color: var(--white);
+}
+
+
+/* ==========================
+   푸터
+========================== */
+
+.footer {
+    padding: 35px 20px 50px;
+    background-color: #efdfce;
+}
+
+.footer img {
+    width: 110px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.footer .copyright {
+    margin-top: 20px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray);
+}
+
+.footer small {
+    display: block;
+    font-size: 10px;
+    color: var(--gray);
+    margin-top: 6px;
+}
+
+
+/* ==========================
+   모바일 반응형
+========================== */
+
+@media (max-width: 380px) {
+
+    .hero {
+        height: 440px;
+    }
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+
+    .section {
+        padding: 50px 20px;
+    }
+
+    .section h2 {
+        font-size: 27px;
+    }
+
+    .body-text {
+        font-size: 14px;
+    }
+
+    .value-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .value-card h3 {
+        font-size: 17px;
+    }
+
+    .signature-info h3 {
+        font-size: 14px;
+    }
+
+    .color-item strong {
+        font-size: 11px;
+    }
+
+    .order-banner h2 {
+        font-size: 36px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+}

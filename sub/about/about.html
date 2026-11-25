@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>브랜드 소개 | 입덕볶이</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- 헤더 -->
+
+        <header class="header">
+
+            <a href="../../index.html" class="back-button" aria-label="홈으로 돌아가기">
+                <svg width="26" height="26" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+            </a>
+
+            <a href="../../index.html" class="logo">
+                <img src="../../img/logo.png" alt="입덕볶이 로고">
+            </a>
+
+            <button class="menu-button" id="menuOpen" aria-label="메뉴 열기">
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                </svg>
+            </button>
+
+        </header>
+
+
+        <!-- 햄버거 메뉴 -->
+
+        <div class="menu-layer" id="menuLayer">
+
+            <div class="menu-overlay" id="menuOverlay"></div>
+
+            <nav class="side-menu">
+
+                <div class="side-menu-header">
+
+                    <button id="menuClose" aria-label="메뉴 닫기">
+                        <svg width="28" height="28" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </button>
+
+                </div>
+
+                <ul class="side-menu-list">
+
+                    <li><a href="../../index.html">메인페이지</a></li>
+
+                    <li><a href="../lists/lists.html">리스트페이지</a></li>
+
+                    <li><a href="../about/about.html">소개</a></li>
+
+                    <li><a href="../community/community.html">커뮤니티</a></li>
+
+                    <li><a href="../login/login.html">로그인</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+
+        <!-- SECTION 01. 메인 비주얼 -->
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <p class="hero-label">ABOUT IPDEOK BOKKI</p>
+
+                <h1>
+                    한 입 먹으면,<br>
+                    입덕 완료!
+                </h1>
+
+                <p class="hero-description">
+                    당신의 새로운 최애 떡볶이
+                </p>
+
+            </div>
+
+            <img class="hero-image"
+                src="../../img/main.webp"
+                alt="입덕볶이 대표 떡볶이">
+
+        </section>
+
+
+        <!-- SECTION 02. 브랜드 스토리 -->
+
+        <section class="section brand-story">
+
+            <p class="section-label">01. BRAND STORY</p>
+
+            <h2>
+                우리는 왜<br>
+                떡볶이에 입덕했을까?
+            </h2>
+
+            <div class="story-image">
+                <img src="../../img/basic.webp" alt="오리지널 입덕볶이">
+            </div>
+
+            <p class="body-text">
+                기분 좋은 날에도, 지친 하루의 끝에도
+                자연스럽게 생각나는 음식, 떡볶이.
+            </p>
+
+            <p class="body-text">
+                입덕볶이는 누구에게나 익숙한 떡볶이를
+                조금 더 특별하고 즐겁게 경험할 수 있도록
+                시작된 브랜드입니다.
+            </p>
+
+            <p class="body-text">
+                좋아하는 것에 푹 빠지는 순간을 뜻하는 '입덕'과
+                '떡볶이'를 결합하여, 한 번 맛보면
+                다시 찾고 싶은 브랜드라는 의미를 담았습니다.
+            </p>
+
+            <div class="story-quote">
+                평범한 한 끼가 아닌,<br>
+                좋아하는 순간을 만들어갑니다.
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 03. 브랜드 특징 -->
+
+        <section class="section brand-values">
+
+            <p class="section-label">02. OUR VALUES</p>
+
+            <h2>
+                입덕할 수밖에 없는<br>
+                세 가지 이유
+            </h2>
+
+            <div class="value-list">
+
+                <article class="value-card">
+
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8.5 14.5A6 6 0 0 1 10 3c0 4 2 5 3 7 1-1 2-3 2-5 3 3 5 6 5 10a8 8 0 0 1-16 0c0-2 1-4 2-5 0 2 1 4 2.5 4.5Z"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <span class="value-number">POINT 01</span>
+                        <h3>자꾸 생각나는 맛</h3>
+                        <p>
+                            매콤함과 달콤함의 조화로
+                            한 입 먹으면 다시 생각나는 맛을 추구합니다.
+                        </p>
+                    </div>
+
+                </article>
+
+                <article class="value-card">
+
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8Z"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <span class="value-number">POINT 02</span>
+                        <h3>취향대로 즐기는 메뉴</h3>
+                        <p>
+                            오리지널부터 로제, 치즈, 짜장까지.
+                            각자의 취향에 맞는 다양한 메뉴를 제공합니다.
+                        </p>
+                    </div>
+
+                </article>
+
+                <article class="value-card">
+
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <path d="M9 9h.01M15 9h.01"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <span class="value-number">POINT 03</span>
+                        <h3>일상 속 즐거운 경험</h3>
+                        <p>
+                            혼자 먹어도, 함께 먹어도 즐거운
+                            일상 속 작은 행복을 전하고자 합니다.
+                        </p>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 04. 브랜드 아이덴티티 -->
+
+        <section class="section brand-identity">
+
+            <p class="section-label">03. BRAND IDENTITY</p>
+
+            <h2>입덕볶이다운 모습</h2>
+
+            <p class="section-description">
+                맛있고 유쾌한 브랜드의 개성을 담았습니다.
+            </p>
+
+            <div class="identity-logo">
+
+                <img src="../../img/logo.png" alt="입덕볶이 브랜드 로고">
+
+            </div>
+
+            <h3 class="identity-title">Brand Logo</h3>
+
+            <p class="body-text">
+                입덕볶이의 로고는 떡볶이의 친근함과
+                브랜드의 유쾌한 이미지를 표현합니다.
+            </p>
+
+            <h3 class="identity-title">Brand Color</h3>
+
+            <div class="color-list">
+
+                <div class="color-item">
+                    <div class="color-chip red"></div>
+                    <strong>Spicy Red</strong>
+                    <span>#EF402B</span>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-chip cream"></div>
+                    <strong>Soft Cream</strong>
+                    <span>#FDF1E2</span>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-chip brown"></div>
+                    <strong>Deep Brown</strong>
+                    <span>#38241F</span>
+                </div>
+
+            </div>
+
+            <p class="body-text">
+                매콤한 떡볶이를 연상시키는 레드와
+                따뜻하고 친근한 크림 컬러,
+                안정감을 주는 브라운을 사용합니다.
+            </p>
+
+        </section>
+
+
+        <!-- SECTION 05. 대표 메뉴 -->
+
+        <section class="section signature">
+
+            <p class="section-label">04. SIGNATURE MENU</p>
+
+            <h2>
+                당신의 최애가 될<br>
+                입덕볶이
+            </h2>
+
+            <p class="section-description">
+                입덕볶이의 대표 메뉴를 소개합니다.
+            </p>
+
+            <div class="signature-list">
+
+                <a class="signature-card"
+                    href="../detail/detail.html?category=main&item=0">
+
+                    <div class="signature-image">
+                        <img src="../../img/basic.webp" alt="오리지널 떡볶이">
+                    </div>
+
+                    <div class="signature-info">
+                        <span>BEST 01</span>
+                        <h3>오리지널 입덕볶이</h3>
+                        <p>매콤달콤한 떡볶이의 정석!</p>
+                        <strong>9,900원</strong>
+                    </div>
+
+                </a>
+
+                <a class="signature-card"
+                    href="../detail/detail.html?category=main&item=1">
+
+                    <div class="signature-image">
+                        <img src="../../img/rose.webp" alt="로제 떡볶이">
+                    </div>
+
+                    <div class="signature-info">
+                        <span>BEST 02</span>
+                        <h3>꾸덕 로제에 입덕볶이</h3>
+                        <p>부드럽고 진한 로제의 매력!</p>
+                        <strong>11,900원</strong>
+                    </div>
+
+                </a>
+
+                <a class="signature-card"
+                    href="../detail/detail.html?category=main&item=3">
+
+                    <div class="signature-image">
+                        <img src="../../img/cheese.webp" alt="치즈 떡볶이">
+                    </div>
+
+                    <div class="signature-info">
+                        <span>BEST 03</span>
+                        <h3>치즈 듬뿍에 입덕볶이</h3>
+                        <p>쭈우욱 늘어나는 고소한 치즈!</p>
+                        <strong>12,900원</strong>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 06. 추천 조합 -->
+
+        <section class="section combination">
+
+            <p class="section-label">05. BEST COMBINATION</p>
+
+            <h2>
+                더 맛있게<br>
+                입덕하는 방법
+            </h2>
+
+            <p class="section-description">
+                함께 먹으면 더 맛있는 추천 조합!
+            </p>
+
+            <article class="combination-card">
+
+                <div class="combination-image">
+                    <img src="../lists/img/set01.webp" alt="떡볶이와 모둠 튀김">
+                </div>
+
+                <div class="combination-info">
+
+                    <span class="combination-tag">실패 없는 조합</span>
+
+                    <h3>떡볶이 + 모둠 튀김</h3>
+
+                    <p>
+                        바삭한 튀김을 매콤달콤한 떡볶이
+                        소스에 콕 찍어 먹어보세요!
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="combination-card">
+
+                <div class="combination-image">
+                    <img src="../lists/img/set02.webp" alt="떡볶이와 사이드 메뉴 세트">
+                </div>
+
+                <div class="combination-info">
+
+                    <span class="combination-tag">함께 먹는 즐거움</span>
+
+                    <h3>떡볶이 + 사이드 메뉴</h3>
+
+                    <p>
+                        좋아하는 사이드 메뉴를 곁들여
+                        더욱 풍성하게 즐겨보세요!
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- SECTION 07. 주문 유도 배너 -->
+
+        <section class="order-banner">
+
+            <p>READY TO IPDEOK?</p>
+
+            <h2>
+                아직도<br>
+                입덕 전이라고?
+            </h2>
+
+            <span>
+                지금 당신의 최애 떡볶이를 만나보세요!
+            </span>
+
+            <a href="../lists/lists.html" class="order-button">
+                지금 입덕하러 가기
+                <svg width="22" height="22" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+                </svg>
+            </a>
+
+        </section>
+
+
+        <!-- 푸터 -->
+
+        <footer class="footer">
+
+            <img src="../../img/logo.png" alt="입덕볶이 로고">
+
+            <p>한 입 먹으면, 입덕 완료!</p>
+
+            <p class="copyright">
+                © IPDEOK BOKKI. All rights reserved.
+            </p>
+
+            <small>
+                본 사이트는 시제품 제작을 위한 테스트 사이트입니다.
+            </small>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        const menuOpen = document.getElementById('menuOpen');
+        const menuClose = document.getElementById('menuClose');
+        const menuLayer = document.getElementById('menuLayer');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuOpen.addEventListener('click', function () {
+
+            menuLayer.classList.add('active');
+
+            document.body.style.overflow = 'hidden';
+
+        });
+
+        function closeMenu() {
+
+            menuLayer.classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+        menuClose.addEventListener('click', closeMenu);
+
+        menuOverlay.addEventListener('click', closeMenu);
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'Escape') {
+
+                closeMenu();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
